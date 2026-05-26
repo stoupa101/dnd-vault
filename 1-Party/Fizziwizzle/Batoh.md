@@ -2,124 +2,142 @@
 tags:
   - inventar
   - tinkerer
+Penize: 182
+Suroviny: 50
 ---
 
-# Inventář a peníze
+# Inventář
 
-## Peníze
+## Peníze a zdroje
 
-**Aktualně: 182 zl** (171,7 + 4,3 z vacku + 6 zl)
+| Co | Kolik |
+|---|---|
+| Zlaťáky | **182 zl** |
+| Suroviny na výrobu | **50 ks** (1 ks = 1 zl) |
+| Na lodi (investice) | 300 zl |
+| Léčivý lektvar | 1x (2k4+2) |
 
-### Historie
+### Záznam výdajů/příjmů
 
 | Datum | Změna | Zůstatek |
 |---|---|---|
-| Start | +17 zl + 52 zl (mezidobí) + 30 zl (zaloha Zalmira) + 60 zl (Arkadie) - 1 zl (přespání) | 158 zl |
-| | +95,2 zl (mezidobí) - 200 zl (Lamelová zbroj) - 10 zl (Štít) - 15 zl (Válečné kladivo) | 38,2 zl |
-| | +1 zl (socha) - 1 zl (kostky) + 49,6 zl (mezidobí) + 140 zl (od Luxora) | 227,8 zl |
-| | - 5 st (hospoda) + 105 zl | 327,3 zl |
-| 13.11. | - 5 zl (léčba epidemie) + 78,6 zl (mezidobí) | 400,9 zl |
-| 2.4. | - 2 st (jídlo) | ~400,9 zl |
-| 4.4. | - 2 zl (pečetní vosk) - 5 zl (zrcátko) | ~393,9 zl |
-| 5.4. | +50 zl (od Alana) + 83,5 zl (případ Dalan) - 20 zl (vylepšení Klaka) | 502,7 zl |
-| 16.4. | - 1 zl (zásoby) - **300 zl (na lodi)** - 1 zl (papír) | 200,7 zl |
-| 29.4. | - 17,0 zl (mezidobí) | 183,7 zl |
-| 28.5.1358 | - 1 zl (sajtna) - 10 zl (krycí plachta na vůz) - 0,7 zl (skoby na stan) - 3 st (goblin) | 171,7 zl |
-| 2.6. | + 4,3 zl (váček v propadle) + 6 zl | 182 zl |
+| 2.6. | +4,3 zl (váček) + 6 zl | **182 zl** |
+| | | |
 
-## Materiál
+> [!tip] Jak přidávat řádek
+> Přidej nový řádek do tabulky nahoře. Předchozí historie je archivovaná.
 
-50 ks surovin pro výrobu (1 ks = 1 zl)
+---
 
-## Zbroj
+## Co mám na sobě
 
-| Zbroj | AC | Vlastnosti |
+### Zbroj
+
+| Co | AC | Efekt |
 |---|---|---|
-| Lamelová zbroj | 17 | Nevýhoda na nenápadnost + Bleskový motor (reakce 1k4+3) |
+| Lamelová zbroj | 17 | ⚡ Bleskový motor: reakce 1k4+3 na útočníka |
 | Štít | +2 | |
+| **Celkem** | **19** | nevýhoda na nenápadnost |
 
-## Na opasku
+### Na opasku (rychlý přístup)
 
-| Zbraň | Poškození | Vlastnosti |
+| Co | Dmg | Jak | Munice |
+|---|---|---|---|
+| Válečné kladivo | 1k8+2 / 1k10+2 | 1r / 1.5r drtivé + ⚡ motor | — |
+| Dýka | 1k4+2 | zblízka i vrh (4/12) | — |
+| Foukačka | 1 | střelná (5/20) | 15 střel, 5x otrávena |
+
+---
+
+## Batoh
+
+### Použitelné věci
+
+| Co | K čemu |
+|---|---|
+| Léčivý lektvar | 2k4+2 HP |
+| Kadidlo | Za 10 dní |
+| Zásoby jídla | Na 10 dní |
+| 7x pochodní | Osvětlení |
+| Křesadlo | Zapálení |
+| 5 sáhů lana | (na boku torny) |
+| Páčidlo | Otevírání, páčení |
+| Zrcátko | Ohlédnutí, signalizace |
+| Pečetní vosk | Pečetění zpráv |
+| Měch na vodu | Voda |
+
+### Nářadí (dovednostní bonusy)
+
+| Nářadí | Bonus | Co s ním |
 |---|---|---|
-| Dýka | 1k4 bodné | Lehká, vrhací (4/12), vytříbená 2x |
-| Válečné kladivo | 1k8 drtivé (1k10 1.5ruč) | Jeden a půlruční + Bleskový motor |
-| Foukačka | 1 bodné | Nabíjecí, střelná (5/20) |
+| Kutilské | **+6** (x2 odbornost) | Opravy, drobná výroba |
+| Kovářské | +3 | Kov, výroba, oprava zbraní/zbroje |
+| Navigační | **+6** (x2 odbornost) | Orientace, navigace lodi |
 
-**Munice:** 15x střela, 5x otrávena
+### Stavební / těžké
 
-## Batoh (Torna z Jeskyňářského balíčku)
+| Co | Poznámka |
+|---|---|
+| Kladivo (řemeslné) | Na skoby, rozebírání |
+| 10x skoba | Lezení, ukotvení |
+| Krumpáč | Hluboké kopání |
+| Lopata | Mělké kopání |
+| Kupecké váhy | Vážení zboží |
+| Karimatka | Spánek |
 
-**Jeskyňářský balíček** (12 zl):
-- Karimatka
-- Páčidlo
-- Kladivo
-- 10 skob
-- 7 pochodní (chrám Maska, miniakce hrobka)
-- Křesadlo
-- 5 sáhů konopného lana (na boku torny) [-5 Zubaté vrchy]
+### Suroviny (detail)
 
-**Kovářské nářadí** (20 zl):
-- Kladivo, Kleště, Hadry
-- Dřevěné uhlí (polovina zásob pryč - Zubaté vrchy)
-- Brusný kámen
+| Co | Kolik | Poznámka |
+|---|---|---|
+| Kutilské: dláto, nit, jehla, lepidlo | — | Drobné opravy |
+| Kovářské: kleště, hadry, brusný kámen | — | Kovářství |
+| Dřevěné uhlí | polovina | Druhá polovina pryč (Zubaté vrchy) |
 
-**Kutilské nářadí** (Zdatnost x2 z odbornosti):
-- Dláto, Nit, Jehla, Lepidlo
-
-**Ostatní:**
-- Zrcátko
-- Kupecké váhy
-- Krumpáč
-- Lopata
-- Mince klanu Devíti zlatých mečů
-- Pečetní vosk
-- Medvědí zub
-- Léčivý lektvar (2k4 + 2)
-- Kadidlo
-- Zásoby 10 dní
-- 10x list (přepis mapy)
-- Měch na vodu
+---
 
 ## Speciální předměty
 
-- Navrh gadgetu pro Zalamyra: krátký meč s ledovým zraněním a vystřelovacím mechanismem na ledové šipky
-- Opis nápisu v chrámu Luna
-- Mechanismus skoku (vybitý)
-- 9x trn z Mantikory
+| Co | Popis | Stav |
+|---|---|---|
+| 9x trn z Mantikory | — | OK |
+| Opis nápisu v chrámu Luna | — | OK |
+| Mechanismus skoku | — | ⚠️ vybitý |
+| Mince klanu Devíti zlatých mečů | — | OK |
+| Medvědí zub | — | OK |
+| 10x list (přepis mapy) | — | OK |
 
-## Na lodi
+### Na lodi
 
-- Krátký meč - 1k6 bodné, 2 lb, Lehký, vytříbený
-- ~~Flakonek jedu (2 dávky)~~ - použito
+- Krátký meč (1k6 bodné, lehký, vytříbený)
 - Otrávená šipka do kusy
 - 300 zl (investice)
 
 ---
 
-## Krátký ledový meč tinkerera
+## Plánované / rozpracované
 
-Vypadá jako standardní krátký meč, jílec propleten stříbrnými drátky a modře zářícími krystaly. Páčka a miniaturní zásobník generující ledové šipky.
+- [ ] Gadget pro Zalamyra: krátký meč s ledovým zraněním + vystřelování ledových šipek
+- [ ] Stříblak (alchymistické mořidlo) - 4 dny výroby, 25 zl materiál
+- [ ] Automatická kopáčka (pro Klaka)
+- [ ] Opisováčka textů (pro Klaka)
+- [ ] Elektrické kladivo (pro Klaka)
 
-- **Typ:** Krátký meč, lehký, finesse
-- **Melee:** 1k6 bodné + 1k4 chladné
-- **Ranged:** 20/60 stop, 1k4 chladné (INT mod na útok)
-- **Mrazivý dotek:** +1k4 chladné při zásahu
-- **Vrhací mechanismus:** Akce = ledová šipka. Auto-doplnění, vyžaduje údržbu (Tinker/Alchemist tools)
-- **Generátor chladu:** 3-5 střel/krátký odpočinek (DM uvážení)
-- **Upgrade potenciál:** Zvýšení dmg, slow efekt, kapacita zásobníku
+---
 
-## Alchymistické mořidlo - "Stříblak"
+## Referenční předměty
 
-Nekouzelný řemeslný/alchymistický předmět.
+### Krátký ledový meč tinkerera
 
-Hustý bělavě perleťový povlak (rozdrcené mušle, lodní olej, stabilizační alchymistická příměs). Tvrdý hladký voskový film chránící lodní dřevo.
+Pro Zalamyra. Jílec se stříbrnými drátky a modrými krystaly, páčka a zásobník ledových šipek.
 
-**Mechanika:**
-- Dřevo 2x životnost ve slaném prostředí
-- Zabraňuje plísním, řasám, hmyzu
-- Snižuje usazování nánosů
-- 1 dávka = 1 kýbl ≈ 10 m² dřeva
-- Výroba: 4 dny, materiál 25 zl
+- Melee: **1k6 bodné + 1k4 chladné**
+- Ranged: 20/60 stop, **1k4 chladné** (INT mod na útok)
+- Mrazivý dotek: +1k4 chladné při zásahu
+- Vrhací mechanismus: 3-5 střel/krátký odpočinek, vyžaduje údržbu
+- Upgrade potenciál: +dmg, slow, kapacita
 
-**Ingredience:** Olej do lucerny, prášek z mořských mušlí, 1 flakónek krve ze slizovitého tvora, včelí vosk, prach z naplaveného stromu, pár kapek kyseliny
+### Stříblak (alchymistické mořidlo)
+
+Hustý perleťový povlak na lodní dřevo. 2x životnost ve slaném prostředí, zabraňuje hnilobě.
+- 1 dávka = 10 m², výroba 4 dny, materiál 25 zl
+- Ingredience: olej do lucerny, mušle, krev slizovice, včelí vosk, naplavené dřevo, kyselina

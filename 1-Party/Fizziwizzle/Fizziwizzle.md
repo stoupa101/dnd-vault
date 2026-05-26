@@ -5,8 +5,8 @@ aliases:
   - Jiskra
 tags:
   - player
+  - dashboard
 Player: Fizziwizzle "Klik" Gadgetgrind
-Role: Player
 Class:
   - Tinkerer (Parní rytíř)
 Race:
@@ -17,109 +17,131 @@ ac: 19
 modifier: 3
 pasperc: 17
 Status: Active
-PlayerKnownLanguages:
-  - Obecná
-  - Gnómština
-Víra: Nebelun (Gond)
+Penize: 182
 ---
 
-# Fizziwizzle "Klik" Gadgetgrind
+# Klik - Dashboard
 
-## Základní info
+> [!info] Rychlý přehled
+> **Skalní gnóm · Tinkerer (Parní rytíř) · Lvl 5 · NN · Nebelun (Gond)**
+> Jazyky: Obecná, Gnómština · Odezírání ze rtů
 
-| Jméno | Rasa | Povolání | Přezdívka | Víra | Přesvědčení |
-|---|---|---|---|---|---|
-| Fizziwizzle Gadgetgrind | Skalní gnóm | Tinkerer (Parní rytíř) | "Klik" | Nebelun (Gond) | NN |
+---
 
-| Pohlaví | Původ | Jazyky |
-|---|---|---|
-| Muž | Westgate | Obecná, Gnómština |
-
-## Staty
-
-| Vlastnost | Hodnota | Bonus | Záchr. hod | Dovednosti |
-|---|---|---|---|---|
-| Síla | 15 | +2 | | Atletika |
-| Obratnost | 10 | +0 | | Akrobacie, Čachry, Nenápadnost |
-| Odolnost | 16 | +3 | **+3** | |
-| Inteligence | 17 | +3 | **+3 (+3 gnóm)** | Historie **[x2]**, Mystika **[x2]**, Náboženství, Pátrání **[x2]**, Příroda |
-| Moudrost | 14 | +2 | **+3** | Lékařství, Ovládání zvířat, Přežití, Vhled, Vnímání |
-| Charisma | 7 | -2 | **+3 (+3 gnóm)** | Klamání, Přesvědčování, Umění, Zastrašování |
-
-**Zdatnostní bonus:** +3
-
-## Boj
+## Bojový přehled
 
 | HP | AC | Iniciativa | Rychlost | Pas. vnímání | Pas. pátrání |
 |---|---|---|---|---|---|
-| 44 (aktualně 40) | 17 (+2 štít) = 19 | +0 | 5 sáhů | 17 (+5 pozorovatel) | 21 (+5 pozorovatel) |
+| **44** (nyní 40) | **19** (17 zbroj + 2 štít) | +0 | 5 sáhů | 17 | 21 |
 
-**Kostky života:** 1-5 (1k8+3)
+### Útoky - předpočítané
 
-### Zbraně
+| Zbraň | Hod na útok | Zásah | Bonus zbraně | Motor bonus | Celkem dmg |
+|---|---|---|---|---|---|
+| **Válečné kladivo** (1r) | +5 | 1k8+2 drtivé | — | reakce: 1k4+3 ⚡ | **1k8+2 drt + 1k4+3 ⚡** |
+| **Válečné kladivo** (1.5r) | +5 | 1k10+2 drtivé | — | reakce: 1k4+3 ⚡ | **1k10+2 drt + 1k4+3 ⚡** |
+| **Dýka** zblízka | +5 | 1k4+2 bodné | vytříbená 2x | — | **1k4+2 bod** |
+| **Dýka** vrh | +5 | 1k4+2 bodné | dostřel 4/12 | — | **1k4+2 bod** |
+| **Foukačka** | +5 | 1 bodné | 5/20, 15 střel | — | **1 bod** |
 
-| Zbraň | Poškození | Vlastnosti |
-|---|---|---|
-| Dýka | 1k4 bodné | Lehká, vrhací (4/12), vytříbená 2x |
-| Válečné kladivo | 1k8 drtivé (1k10 1.5ruč) | Jeden a půlruční |
-| Foukačka | 1 bodné | Nabíjecí, střelná (5/20), 15x střela, 5x otrávena |
+> [!warning] Reakce: Motor ve zbroji
+> Když tě tvor zasáhne útokem (5 stop) → **1k4+3 ⚡ elektrika** (reakce,automatická z Parního rytíře)
 
-### Zbroj
+> [!tip] Vybití motoru (bonus akce/reakce)
+> Útok zbraní s motorem + utratíš spell slot → **+2k6 ⚡** (za slot 1. lvl, +1k6 za vyšší slot, max 5k6)
 
-| Zbroj | AC | Vlastnosti |
-|---|---|---|
-| Lamelová zbroj | 17 | Nevýhoda na nenápadnost |
-| Štít | +2 | |
+### Sloty kouzel
 
-### Motory
+| Lvl 1 | Lvl 2 |
+|---|---|
+| **4** | **2** |
 
-| Motor | Umístění | Efekt |
-|---|---|---|
-| Bleskový motor | Zbroj | Reakce: 1k4 + 3 elektrika při zásahu |
-| Bleskový motor | Zbraň | Bonus akce: 1k4 + 4 (1k6 za 2 motory) |
+### Připravená kouzla (5/den)
 
-## Kouzla
-
-**SO záchrany kouzla:** 8 + 3 + 3 = 14
-**Útočná oprava kouzla:** 3 + 3 = +6
-
-| Kouzlo | Sloty | Gadget | Poznámka |
+| Kouzlo | Slot | Gadget | Poznámka |
 |---|---|---|---|
-| Poplach (rituál) | 2 | Tenký drátek, hlasitý zvonek | -2 základní tábor |
-| Katapult | 1 | Pružinový mechanismus | |
-| Pomalý pád | 2 | Padák v taštičce s úchytem | Hod na akrobacii já i cíl |
-| Skok | 2 (-1) | Pružiny na boty | |
-| Sádlo | 1 | Flakonek s mazlavou tekutinou | |
-| Generátor kouře | 1 | Prototyp | Čerstvá tráva/listí, nestabilní spouštění |
+| Poplach (rituál) | 1 | Drátek + zvonek | 2x, -2 na tábor |
+| Katapult | 1 | Pružinový mech. | 3k8 drtivé |
+| Pomalý pád | 1 | Padák v taštičce | 2x, akrobacie |
+| Skok | 1 | Pružiny na boty | 2x, vzdálenost x3 |
+| Sádlo | 1 | Mazlavý flakónek | Kluzký čtverec 2 sáhy |
+| Gen. kouře | 1 | Prototyp | Tráva/listí, nestabilní |
 
-**Připravená kouzla:** INT mod (3) + polovina levelu (2) = 5 kouzel
+**SO kouzla: 14** | **Útočná oprava: +6**
 
-## Schopnosti
+---
 
-- [x] Gnómská prohnanost - +3 ke záchr. hodům INT/WIS/CHA proti magii
-- [x] Magnetický Oscilační Transmutačně Obnovující se Rotátor
-- [x] Konstrukce - 5 zl/hod
-- [x] Ovlivňovací motor (2) - lvl 5
-- [x] Kouzlení - lvl 2
-- [x] Vybití motoru - 2k6 za slot
-- [x] Odbornost - Kutilské nářadí (x2), Navigační pomůcky (x2)
-- [x] Studijní obor: Parní rytíř - lvl 3
-- [x] Ovlivňování brnění - 1k4+3 reakce
-- [x] Rychlé vytvoření (1 zl) - 3x/den
-- [x] Pozorovatel - +5 pas. vnímání a pátrání, odezírání ze rtů
-- [ ] Vylepšení motoru brnění - lvl 7
-- [ ] Působení Armor Coat - lvl 10
+## Dovednosti - předpočítané
 
-### Speciální
-- Hledání materiálů
-- Oprava věcí
-- Základní navigace lodi
+> [!note] Jak číst
+> **Tučné** = zdatnostní bonus aplikován, **x2** = odbornost, *kurzíva* = zástupná dovednost
+
+| Dovednost | Bonus | Základ |
+|---|---|---|
+| **Historie** | **+8** | INT +3, zd +3, odb x2 |
+| **Pátrání** | **+8** | INT +3, zd +3, odb x2 |
+| Mystika | +6 | INT +3, zd +3 |
+| Náboženství | +6 | INT +3, zd +3 |
+| Příroda | +6 | INT +3, zd +3 |
+| Vnímání | +7 | WIS +2, zd +3, +2 pozorovatel |
+| Vhled | +5 | WIS +2, zd +3 |
+| Lékařství | +5 | WIS +2, zd +3 |
+| Přežití | +5 | WIS +2, zd +3 |
+| Atletika | +5 | STR +2, zd +3 |
+| Akrobacie | +3 | DEX +0, zd +3 |
+| Ovládání zvířat | +5 | WIS +2, zd +3 |
+| Čachry | +3 | DEX +0, zd +3 |
+| Nenápadnost | +3 | DEX +0, zd +3 |
+| Klamání | +1 | CHA -2, zd +3 |
+| Přesvědčování | +1 | CHA -2, zd +3 |
+| Umění | +1 | CHA -2, zd +3 |
+| Zastrašování | +1 | CHA -2, zd +3 |
+
+### Záchranné hody
+
+| Vlastnost | Bonus | Poznámka |
+|---|---|---|
+| Odolnost | **+3** | |
+| Inteligence | **+6** | +3 základ + 3 gnóm vs magie |
+| Moudrost | **+5** | +2 základ + 3 gnóm vs magie |
+| Charisma | **+5** | -2 základ + 3 gnóm vs magie + 2 pozorovatel(?) |
+| Síla | +2 | |
+| Obratnost | +0 | |
+
+---
+
+## Peníze & zdroje
+
+> [!success] Aktuálně
+> **182 zl** · 50 ks surovin (1 ks = 1 zl) · Léčivý lektvar (2k4+2)
+
+**Na lodi:** 300 zl (investice) · Krátký meč · Otrávená šipka do kusy
+
+---
+
+## Rychlé reference
+
+> [!abstract] Co umím navíc
+> - **Konstrukce** 5 zl/hod (za odpočinek)
+> - **Rychlé vytvoření** předmět ≤1 zl jako akci (3x/den)
+> - **Oprava věcí** 10 HP/hod (kovářské + kutilské nářadí)
+> - **Hledání materiálů** (pátrání + pátrání ve smetištích/růních)
+> - **Odezírání ze rtů** (pokud vidíš pusu a znáš jazyk)
+> - **Základní navigace lodi**
+
+> [!bug] Stavy a postihy
+> - Otrávený, únava 1
+> - Motor skoku: **vybitý**
+
+---
 
 ## Odkazy
 
-- [[Pravidla|Pravidla Tinkerera]]
-- [[Kouzla|Kouzla a gadgety]]
-- [[Lore|Zázemí a příběh]]
-- [[Denik|Herní deník]]
-- [[Batoh|Inventář a peníze]]
-- [[Klak|Společník Klak]]
+| Co hledáš | Kam kliknout |
+|---|---|
+| Všechna kouzla a gadgety | [[Kouzla]] |
+| Pravidla třídy, motory, spotřebiče | [[Pravidla]] |
+| Inventář detailně | [[Batoh]] |
+| Klak - společník | [[Klak]] |
+| Zázemí, bohové, Dům kola | [[Lore]] |
+| Herní deník a úkoly | [[Denik]] |
