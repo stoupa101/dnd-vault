@@ -12,148 +12,313 @@ Class:
 Race:
   - Skalní gnóm
 level: 5
-hp: 44
+hp: 40
 ac: 19
 modifier: 3
 pasperc: 17
+Penize: 182
+Suroviny: 50
+HerniDatum: 2.6.1358
 Status: Active
 ---
 
 # Klik - Dashboard
 
-```dataviewjs
-const b = dv.page("1-Party/Fizziwizzle/Batoh");
-dv.header(3, `💰 ${b.Penize} zl · 📦 ${b.Suroviny} ks surovin · ❤️ ${b.HP}/44 HP · 📅 ${b.HerniDatum}`);
-```
-
-> [!info] Rychlý přehled
-> **Skalní gnóm · Tinkerer (Parní rytíř) · Lvl 5 · NN · Nebelun (Gond)**
+> [!info] Skalní gnóm · Tinkerer (Parní rytíř) · Lvl 5 · NN · Nebelun (Gond)
 > Jazyky: Obecná, Gnómština · Odezírání ze rtů
 
 ---
 
-## Bojový přehled
+## HP
 
-```dataviewjs
-const b = dv.page("1-Party/Fizziwizzle/Batoh");
-dv.header(2, `❤️ ${b.HP} / 44 HP`);
-```
+`VIEW[{hp}][text]` / 44
+
+| -5 | -2 | -1 | | +1 | +2 | +5 |
+|---|---|---|---|---|---|---|
+| `BUTTON[hp-5]` | `BUTTON[hp-2]` | `BUTTON[hp-1]` | | `BUTTON[hp+1]` | `BUTTON[hp+2]` | `BUTTON[hp+5]` |
+
+---
+
+## Peníze
+
+**`VIEW[{Penize}][text]` zl** · `VIEW[{Suroviny}][text]` ks surovin · Herní datum: **`VIEW[{HerniDatum}][text]`**
+
+### Zlaťáky
+
+| -10 | -5 | -1 | Změnit na: | +1 | +5 | +10 |
+|---|---|---|---|---|---|---|
+| `BUTTON[zl-10]` | `BUTTON[zl-5]` | `BUTTON[zl-1]` | `INPUT[inline:number:Penize]` | `BUTTON[zl+1]` | `BUTTON[zl+5]` | `BUTTON[zl+10]` |
+
+### Suroviny
+
+| -5 | -1 | | +1 | +5 |
+|---|---|---|---|---|
+| `BUTTON[sur-5]` | `BUTTON[sur-1]` | | `BUTTON[sur+1]` | `BUTTON[sur+5]` |
+
+### Herní datum
+
+`INPUT[inline:text:HerniDatum]`
+
+---
+
+## Boj
 
 | AC | Iniciativa | Rychlost | Pas. vnímání | Pas. pátrání |
 |---|---|---|---|---|
-| **19** (17 zbroj + 2 štít) | +0 | 5 sáhů | 17 | 21 |
+| **19** (17+2) | +0 | 5 sáhů | 17 | 21 |
 
-### Útoky - předpočítané
+### Útoky
 
-| Zbraň | Hod na útok | Zásah | Motor bonus | Celkem dmg |
+| Zbraň | Hod | Dmg základ | Motor | Celkem |
 |---|---|---|---|---|
-| **Válečné kladivo** (1r) | +5 | 1k8+2 drtivé | reakce: 1k4+3 ⚡ | **1k8+2 drt + 1k4+3 ⚡** |
-| **Válečné kladivo** (1.5r) | +5 | 1k10+2 drtivé | reakce: 1k4+3 ⚡ | **1k10+2 drt + 1k4+3 ⚡** |
-| **Dýka** zblízka | +5 | 1k4+2 bodné | — | **1k4+2 bod** |
-| **Dýka** vrh | +5 | 1k4+2 bodné | dostřel 4/12 | **1k4+2 bod** |
-| **Foukačka** | +5 | 1 bodné | 5/20, 15 střel | **1 bod** |
+| **Kladivo** 1r | +5 | 1k8+2 drtivé | reakce 1k4+3⚡ | **1k8+2 + 1k4+3⚡** |
+| **Kladivo** 1.5r | +5 | 1k10+2 drtivé | reakce 1k4+3⚡ | **1k10+2 + 1k4+3⚡** |
+| **Dýka** | +5 | 1k4+2 bodné | — | **1k4+2** |
+| **Foukačka** | +5 | 1 bodné | 5/20 | **1** |
 
 > [!warning] Reakce: Motor ve zbroji
-> Když tě tvor zasáhne útokem (5 stop) → **1k4+3 ⚡ elektrika** (automatická reakce)
+> Tvor tě zasáhne (5 stop) → **1k4+3 ⚡** (automatická)
 
-> [!tip] Vybití motoru (bonus akce/reakce)
-> Útok zbraní s motorem + utratíš spell slot → **+2k6 ⚡** (za slot 1. lvl, +1k6 za vyšší slot, max 5k6)
+> [!tip] Vybití motoru
+> Útok s motorem + spell slot → **+2k6⚡** (slot 1), +1k6 za vyšší slot, max 5k6
 
-### Sloty kouzel
+### Kouzla
 
-| Lvl 1 | Lvl 2 |
-|---|---|
-| **4** | **2** |
-
-### Připravená kouzla (5/den)
+| Lvl 1 | Lvl 2 | SO: 14 | Útok: +6 |
+|---|---|---|---|
+| **4** | **2** | | |
 
 | Kouzlo | Slot | Gadget | Poznámka |
 |---|---|---|---|
-| Poplach (rituál) | 1 | Drátek + zvonek | 2x, -2 na tábor |
+| Poplach (rituál) | 1 | Drátek + zvonek | 2x, -2 tábor |
 | Katapult | 1 | Pružinový mech. | 3k8 drtivé |
 | Pomalý pád | 1 | Padák v taštičce | 2x, akrobacie |
-| Skok | 1 | Pružiny na boty | 2x, vzdálenost x3 |
-| Sádlo | 1 | Mazlavý flakónek | Kluzký čtverec 2 sáhy |
-| Gen. kouře | 1 | Prototyp | Tráva/listí, nestabilní |
-
-**SO kouzla: 14** | **Útočná oprava: +6**
+| Skok | 1 | Pružiny na boty | 2x, x3 skok |
+| Sádlo | 1 | Mazlavý flakónek | Kluzký 2 sáhy |
+| Gen. kouře | 1 | Prototyp | Nestabilní |
 
 ---
 
-## Dovednosti - předpočítané
+## Dovednosti
 
-| Dovednost | Bonus | Složky |
-|---|---|---|
-| **Historie** | **+8** | INT+3 zd+3 odbx2 |
-| **Pátrání** | **+8** | INT+3 zd+3 odbx2 |
-| Mystika | +6 | INT+3 zd+3 |
-| Náboženství | +6 | INT+3 zd+3 |
-| Příroda | +6 | INT+3 zd+3 |
-| Vnímání | +7 | WIS+2 zd+3 +2poz |
-| Vhled | +5 | WIS+2 zd+3 |
-| Lékařství | +5 | WIS+2 zd+3 |
-| Přežití | +5 | WIS+2 zd+3 |
-| Atletika | +5 | STR+2 zd+3 |
-| Akrobacie | +3 | DEX+0 zd+3 |
-| Ovládání zvířat | +5 | WIS+2 zd+3 |
-| Čachry | +3 | DEX+0 zd+3 |
-| Nenápadnost | +3 | DEX+0 zd+3 |
-| Klamání | +1 | CHA-2 zd+3 |
-| Přesvědčování | +1 | CHA-2 zd+3 |
-| Umění | +1 | CHA-2 zd+3 |
-| Zastrašování | +1 | CHA-2 zd+3 |
+| TOP dovednosti | Bonus | Ostatní | Bonus |
+|---|---|---|---|
+| **Historie** | **+8** | Atletika | +5 |
+| **Pátrání** | **+8** | Akrobacie | +3 |
+| Mystika | +6 | Čachry | +3 |
+| Náboženství | +6 | Nenápadnost | +3 |
+| Příroda | +6 | Klamání | +1 |
+| Vnímání | +7 | Přesvědčování | +1 |
+| Vhled / Lékařství / Přežití | +5 | Umění / Zastrašování | +1 |
 
-### Záchranné hody
-
-| Vlastnost | Bonus | Poznámka |
-|---|---|---|
-| Odolnost | **+3** | |
-| Inteligence | **+6** | +3 základ + 3 gnóm vs magie |
-| Moudrost | **+5** | +2 základ + 3 gnóm vs magie |
-| Charisma | **+5** | -2 základ + 3 gnóm vs magie |
-| Síla | +2 | |
-| Obratnost | +0 | |
+**Záchranné hody:** CON +3 | **INT +6** | **WIS +5** | **CHA +5** | STR +2 | DEX +0
 
 ---
 
-## Peníze & zdroje
+## Stavy
 
-```dataviewjs
-const b = dv.page("1-Party/Fizziwizzle/Batoh");
-dv.paragraph(`> [!success] Aktuálně\n> **${b.Penize} zl** · **${b.Suroviny} ks** surovin · Léčivý lektvar (2k4+2) · Na lodi: 300 zl`);
-```
-
-> [!tip] Jak přidat/odebrat peníze
-> 1. Otevři [[Batoh]]
-> 2. Změň `Penize:` v horním YAML
-> 3. Přidej řádek do tabulky
+> [!bug] Aktuální
+> - [ ] Otrávený
+> - [ ] Únava (kruh: `INPUT[inline:number:Unava]`)  — *zatím: 1*
+> - [ ] Motor skoku: **vybitý**
 
 ---
 
 ## Rychlé reference
 
-> [!abstract] Co umím navíc
-> - **Konstrukce** 5 zl/hod (za odpočinek)
-> - **Rychlé vytvoření** předmět ≤1 zl jako akci (3x/den)
-> - **Oprava věcí** 10 HP/hod (kovářské + kutilské nářadí)
-> - **Hledání materiálů** (pátrání + pátrání ve smetištích/růních)
-> - **Odezírání ze rtů** (pokud vidíš pusu a znáš jazyk)
-> - **Základní navigace lodi**
-
-> [!bug] Stavy a postihy
-> - Otrávený, únava 1
-> - Motor skoku: **vybitý**
+- **Konstrukce** 5 zl/hod · **Rychlé vytvoření** ≤1 zl jako akci (3x/den)
+- **Oprava** 10 HP/hod · **Hledání materiálů** · **Odezírání ze rtů** · **Navigace lodi**
 
 ---
 
 ## Odkazy
 
-| Co hledáš | Kam kliknout |
+| Co | Kam |
 |---|---|
-| Peníze, HP, inventář detailně | [[Batoh]] ← **upravuj zde** |
-| Všechna kouzla a gadgety | [[Kouzla]] |
-| Pravidla třídy, motory, spotřebiče | [[Pravidla]] |
-| Klak - společník | [[Klak]] |
-| Zázemí, bohové, Dům kola | [[Lore]] |
-| Herní deník a úkoly | [[Denik]] |
-| Šablona pro nové sezení | [[Sablona sezeni]] |
+| Inventář detailně | [[Batoh]] |
+| Kouzla a gadgety | [[Kouzla]] |
+| Pravidla třídy | [[Pravidla]] |
+| Klak | [[Klak]] |
+| Zázemí, bohové | [[Lore]] |
+| Deník a úkoly | [[Denik]] |
+| Šablona sezení | [[Sablona sezeni]] |
+
+---
+
+## Tlačítka (skrytá logika)
+
+```meta-bind-button
+style: destructive
+label: -5
+id: hp-5
+action:
+  type: updateMetadata
+  bindTarget: hp
+  evaluate: true
+  value: Math.max(0, x - 5)
+```
+
+```meta-bind-button
+style: destructive
+label: -2
+id: hp-2
+action:
+  type: updateMetadata
+  bindTarget: hp
+  evaluate: true
+  value: Math.max(0, x - 2)
+```
+
+```meta-bind-button
+style: destructive
+label: -1
+id: hp-1
+action:
+  type: updateMetadata
+  bindTarget: hp
+  evaluate: true
+  value: Math.max(0, x - 1)
+```
+
+```meta-bind-button
+style: primary
+label: +1
+id: hp+1
+action:
+  type: updateMetadata
+  bindTarget: hp
+  evaluate: true
+  value: Math.min(44, x + 1)
+```
+
+```meta-bind-button
+style: primary
+label: +2
+id: hp+2
+action:
+  type: updateMetadata
+  bindTarget: hp
+  evaluate: true
+  value: Math.min(44, x + 2)
+```
+
+```meta-bind-button
+style: primary
+label: +5
+id: hp+5
+action:
+  type: updateMetadata
+  bindTarget: hp
+  evaluate: true
+  value: Math.min(44, x + 5)
+```
+
+```meta-bind-button
+style: destructive
+label: -10
+id: zl-10
+action:
+  type: updateMetadata
+  bindTarget: Penize
+  evaluate: true
+  value: Math.round((x - 10) * 10) / 10
+```
+
+```meta-bind-button
+style: destructive
+label: -5
+id: zl-5
+action:
+  type: updateMetadata
+  bindTarget: Penize
+  evaluate: true
+  value: Math.round((x - 5) * 10) / 10
+```
+
+```meta-bind-button
+style: destructive
+label: -1
+id: zl-1
+action:
+  type: updateMetadata
+  bindTarget: Penize
+  evaluate: true
+  value: Math.round((x - 1) * 10) / 10
+```
+
+```meta-bind-button
+style: primary
+label: +1
+id: zl+1
+action:
+  type: updateMetadata
+  bindTarget: Penize
+  evaluate: true
+  value: Math.round((x + 1) * 10) / 10
+```
+
+```meta-bind-button
+style: primary
+label: +5
+id: zl+5
+action:
+  type: updateMetadata
+  bindTarget: Penize
+  evaluate: true
+  value: Math.round((x + 5) * 10) / 10
+```
+
+```meta-bind-button
+style: primary
+label: +10
+id: zl+10
+action:
+  type: updateMetadata
+  bindTarget: Penize
+  evaluate: true
+  value: Math.round((x + 10) * 10) / 10
+```
+
+```meta-bind-button
+style: destructive
+label: -5
+id: sur-5
+action:
+  type: updateMetadata
+  bindTarget: Suroviny
+  evaluate: true
+  value: Math.max(0, x - 5)
+```
+
+```meta-bind-button
+style: destructive
+label: -1
+id: sur-1
+action:
+  type: updateMetadata
+  bindTarget: Suroviny
+  evaluate: true
+  value: Math.max(0, x - 1)
+```
+
+```meta-bind-button
+style: primary
+label: +1
+id: sur+1
+action:
+  type: updateMetadata
+  bindTarget: Suroviny
+  evaluate: true
+  value: x + 1
+```
+
+```meta-bind-button
+style: primary
+label: +5
+id: sur+5
+action:
+  type: updateMetadata
+  bindTarget: Suroviny
+  evaluate: true
+  value: x + 5
+```
