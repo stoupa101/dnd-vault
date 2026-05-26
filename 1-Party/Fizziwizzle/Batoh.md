@@ -4,28 +4,40 @@ tags:
   - tinkerer
 Penize: 182
 Suroviny: 50
+HP: 40
+HerniDatum: 2.6.1358
 ---
 
 # Inventář
 
-## Peníze a zdroje
+> [!success] Stav
+> **`= this.Penize` zl** · **`= this.Suroviny` ks** surovin · **`= this.HP`/44 HP** · **`= this.HerniDatum`**
 
-| Co | Kolik |
-|---|---|
-| Zlaťáky | **182 zl** |
-| Suroviny na výrobu | **50 ks** (1 ks = 1 zl) |
-| Na lodi (investice) | 300 zl |
-| Léčivý lektvar | 1x (2k4+2) |
+---
 
-### Záznam výdajů/příjmů
+## Peníze
 
-| Datum | Změna | Zůstatek |
+> [!tip] Jak upravit
+> 1. Změň číslo `Penize` v horním **frontmatteru** (YAML nahoře)
+> 2. Přidej řádek do tabulky níž
+
+| Herní datum | ± zl | Zůstatek | Co se stalo |
+|---|---|---|---|
+| 2.6.1358 | +4,3+6 | 182 | váček v propadle + nález |
+| | +12 | 194 | prohledání chrámu |
+| | -0,3 | 193,7 | oběd v hostinci Na louce |
+
+---
+
+## HP tracker
+
+> [!tip] Jak upravit
+> 1. Změň číslo `HP` v horním **frontmatteru**
+> 2. Max HP = 44
+
+| Změna | HP | Co |
 |---|---|---|
-| 2.6. | +4,3 zl (váček) + 6 zl | **182 zl** |
-| | | |
-
-> [!tip] Jak přidávat řádek
-> Přidej nový řádek do tabulky nahoře. Předchozí historie je archivovaná.
+| start | 40 | (nyní) |
 
 ---
 
@@ -138,6 +150,6 @@ Pro Zalamyra. Jílec se stříbrnými drátky a modrými krystaly, páčka a zá
 
 ### Stříblak (alchymistické mořidlo)
 
-Hustý perleťový povlak na lodní dřevo. 2x životnost ve slaném prostředí, zabraňuje hnilobě.
+Hustý perleťový povlak na lodí dřevo. 2x životnost ve slaném prostředí, zabraňuje hnilobě.
 - 1 dávka = 10 m², výroba 4 dny, materiál 25 zl
 - Ingredience: olej do lucerny, mušle, krev slizovice, včelí vosk, naplavené dřevo, kyselina
