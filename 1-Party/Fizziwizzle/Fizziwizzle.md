@@ -13,12 +13,14 @@ Race:
   - Skalní gnóm
 level: 5
 hp: 40
+max_hp: 44
 ac: 19
 modifier: 3
 pasperc: 17
 Penize: 182
 Suroviny: 50
 HerniDatum: 2.6.1358
+damage: 5
 Status: Active
 ---
 
@@ -31,33 +33,230 @@ Status: Active
 
 ## HP
 
-`VIEW[{hp}][text]` / 44
+```meta-bind-button
+label: "-5"
+hidden: true
+id: "hp-minus-5"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: hp
+    evaluate: true
+    value: "Math.max(0, x - 5)"
+```
 
-| -5 | -2 | -1 | | +1 | +2 | +5 |
-|---|---|---|---|---|---|---|
-| `BUTTON[hp-5]` | `BUTTON[hp-2]` | `BUTTON[hp-1]` | | `BUTTON[hp+1]` | `BUTTON[hp+2]` | `BUTTON[hp+5]` |
+```meta-bind-button
+label: "-2"
+hidden: true
+id: "hp-minus-2"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: hp
+    evaluate: true
+    value: "Math.max(0, x - 2)"
+```
+
+```meta-bind-button
+label: "-1"
+hidden: true
+id: "hp-minus-1"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: hp
+    evaluate: true
+    value: "Math.max(0, x - 1)"
+```
+
+```meta-bind-button
+label: "+1"
+hidden: true
+id: "hp-plus-1"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: hp
+    evaluate: true
+    value: "Math.min(getMetadata('max_hp'), x + 1)"
+```
+
+```meta-bind-button
+label: "+2"
+hidden: true
+id: "hp-plus-2"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: hp
+    evaluate: true
+    value: "Math.min(getMetadata('max_hp'), x + 2)"
+```
+
+```meta-bind-button
+label: "+5"
+hidden: true
+id: "hp-plus-5"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: hp
+    evaluate: true
+    value: "Math.min(getMetadata('max_hp'), x + 5)"
+```
+
+```meta-bind-button
+label: "Full"
+hidden: true
+id: "hp-full"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: hp
+    evaluate: true
+    value: "getMetadata('max_hp')"
+```
+
+**HP: `VIEW[{hp}][text]` / `VIEW[{max_hp}][text]`**
+`BUTTON[hp-minus-5]` `BUTTON[hp-minus-2]` `BUTTON[hp-minus-1]` | `BUTTON[hp-plus-1]` `BUTTON[hp-plus-2]` `BUTTON[hp-plus-5]` `BUTTON[hp-full]`
 
 ---
 
 ## Peníze
 
-**`VIEW[{Penize}][text]` zl** · `VIEW[{Suroviny}][text]` ks surovin · Herní datum: **`VIEW[{HerniDatum}][text]`**
+```meta-bind-button
+label: "-10"
+hidden: true
+id: "zl-minus-10"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: Penize
+    evaluate: true
+    value: "Math.round((x - 10) * 10) / 10"
+```
 
-### Zlaťáky
+```meta-bind-button
+label: "-5"
+hidden: true
+id: "zl-minus-5"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: Penize
+    evaluate: true
+    value: "Math.round((x - 5) * 10) / 10"
+```
 
-| -10 | -5 | -1 | Změnit na: | +1 | +5 | +10 |
-|---|---|---|---|---|---|---|
-| `BUTTON[zl-10]` | `BUTTON[zl-5]` | `BUTTON[zl-1]` | `INPUT[inline:number:Penize]` | `BUTTON[zl+1]` | `BUTTON[zl+5]` | `BUTTON[zl+10]` |
+```meta-bind-button
+label: "-1"
+hidden: true
+id: "zl-minus-1"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: Penize
+    evaluate: true
+    value: "Math.round((x - 1) * 10) / 10"
+```
 
-### Suroviny
+```meta-bind-button
+label: "+1"
+hidden: true
+id: "zl-plus-1"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: Penize
+    evaluate: true
+    value: "Math.round((x + 1) * 10) / 10"
+```
 
-| -5 | -1 | | +1 | +5 |
-|---|---|---|---|---|
-| `BUTTON[sur-5]` | `BUTTON[sur-1]` | | `BUTTON[sur+1]` | `BUTTON[sur+5]` |
+```meta-bind-button
+label: "+5"
+hidden: true
+id: "zl-plus-5"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: Penize
+    evaluate: true
+    value: "Math.round((x + 5) * 10) / 10"
+```
 
-### Herní datum
+```meta-bind-button
+label: "+10"
+hidden: true
+id: "zl-plus-10"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: Penize
+    evaluate: true
+    value: "Math.round((x + 10) * 10) / 10"
+```
 
-`INPUT[inline:text:HerniDatum]`
+**`VIEW[{Penize}][text]` zl** `BUTTON[zl-minus-10]` `BUTTON[zl-minus-5]` `BUTTON[zl-minus-1]` | `BUTTON[zl-plus-1]` `BUTTON[zl-plus-5]` `BUTTON[zl-plus-10]` | Nastavit: `INPUT[number:Penize]`
+
+---
+
+## Suroviny
+
+```meta-bind-button
+label: "-5"
+hidden: true
+id: "sur-minus-5"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: Suroviny
+    evaluate: true
+    value: "Math.max(0, x - 5)"
+```
+
+```meta-bind-button
+label: "-1"
+hidden: true
+id: "sur-minus-1"
+style: destructive
+actions:
+  - type: updateMetadata
+    bindTarget: Suroviny
+    evaluate: true
+    value: "Math.max(0, x - 1)"
+```
+
+```meta-bind-button
+label: "+1"
+hidden: true
+id: "sur-plus-1"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: Suroviny
+    evaluate: true
+    value: "x + 1"
+```
+
+```meta-bind-button
+label: "+5"
+hidden: true
+id: "sur-plus-5"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: Suroviny
+    evaluate: true
+    value: "x + 5"
+```
+
+**`VIEW[{Suroviny}][text]` ks** `BUTTON[sur-minus-5]` `BUTTON[sur-minus-1]` | `BUTTON[sur-plus-1]` `BUTTON[sur-plus-5]`
+
+---
+
+## Herní datum
+
+**`VIEW[{HerniDatum}][text]`** `INPUT[text:HerniDatum]`
 
 ---
 
@@ -119,7 +318,7 @@ Status: Active
 
 > [!bug] Aktuální
 > - [ ] Otrávený
-> - [ ] Únava (kruh: `INPUT[inline:number:Unava]`)  — *zatím: 1*
+> - [ ] Únava 1
 > - [ ] Motor skoku: **vybitý**
 
 ---
@@ -142,183 +341,3 @@ Status: Active
 | Zázemí, bohové | [[Lore]] |
 | Deník a úkoly | [[Denik]] |
 | Šablona sezení | [[Sablona sezeni]] |
-
----
-
-## Tlačítka (skrytá logika)
-
-```meta-bind-button
-style: destructive
-label: -5
-id: hp-5
-action:
-  type: updateMetadata
-  bindTarget: hp
-  evaluate: true
-  value: Math.max(0, x - 5)
-```
-
-```meta-bind-button
-style: destructive
-label: -2
-id: hp-2
-action:
-  type: updateMetadata
-  bindTarget: hp
-  evaluate: true
-  value: Math.max(0, x - 2)
-```
-
-```meta-bind-button
-style: destructive
-label: -1
-id: hp-1
-action:
-  type: updateMetadata
-  bindTarget: hp
-  evaluate: true
-  value: Math.max(0, x - 1)
-```
-
-```meta-bind-button
-style: primary
-label: +1
-id: hp+1
-action:
-  type: updateMetadata
-  bindTarget: hp
-  evaluate: true
-  value: Math.min(44, x + 1)
-```
-
-```meta-bind-button
-style: primary
-label: +2
-id: hp+2
-action:
-  type: updateMetadata
-  bindTarget: hp
-  evaluate: true
-  value: Math.min(44, x + 2)
-```
-
-```meta-bind-button
-style: primary
-label: +5
-id: hp+5
-action:
-  type: updateMetadata
-  bindTarget: hp
-  evaluate: true
-  value: Math.min(44, x + 5)
-```
-
-```meta-bind-button
-style: destructive
-label: -10
-id: zl-10
-action:
-  type: updateMetadata
-  bindTarget: Penize
-  evaluate: true
-  value: Math.round((x - 10) * 10) / 10
-```
-
-```meta-bind-button
-style: destructive
-label: -5
-id: zl-5
-action:
-  type: updateMetadata
-  bindTarget: Penize
-  evaluate: true
-  value: Math.round((x - 5) * 10) / 10
-```
-
-```meta-bind-button
-style: destructive
-label: -1
-id: zl-1
-action:
-  type: updateMetadata
-  bindTarget: Penize
-  evaluate: true
-  value: Math.round((x - 1) * 10) / 10
-```
-
-```meta-bind-button
-style: primary
-label: +1
-id: zl+1
-action:
-  type: updateMetadata
-  bindTarget: Penize
-  evaluate: true
-  value: Math.round((x + 1) * 10) / 10
-```
-
-```meta-bind-button
-style: primary
-label: +5
-id: zl+5
-action:
-  type: updateMetadata
-  bindTarget: Penize
-  evaluate: true
-  value: Math.round((x + 5) * 10) / 10
-```
-
-```meta-bind-button
-style: primary
-label: +10
-id: zl+10
-action:
-  type: updateMetadata
-  bindTarget: Penize
-  evaluate: true
-  value: Math.round((x + 10) * 10) / 10
-```
-
-```meta-bind-button
-style: destructive
-label: -5
-id: sur-5
-action:
-  type: updateMetadata
-  bindTarget: Suroviny
-  evaluate: true
-  value: Math.max(0, x - 5)
-```
-
-```meta-bind-button
-style: destructive
-label: -1
-id: sur-1
-action:
-  type: updateMetadata
-  bindTarget: Suroviny
-  evaluate: true
-  value: Math.max(0, x - 1)
-```
-
-```meta-bind-button
-style: primary
-label: +1
-id: sur+1
-action:
-  type: updateMetadata
-  bindTarget: Suroviny
-  evaluate: true
-  value: x + 1
-```
-
-```meta-bind-button
-style: primary
-label: +5
-id: sur+5
-action:
-  type: updateMetadata
-  bindTarget: Suroviny
-  evaluate: true
-  value: x + 5
-```
