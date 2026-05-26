@@ -1,0 +1,13 @@
+{
+  "accentColor": "",
+  "cssTheme": "ITS Theme",
+  "theme": "obsidian",
+  "enabledCssSnippets": [
+    "S - Encoded Fonts",
+    "S - Encoded Icons",
+    "supercharged-links-gen",
+    "dnd5e-float-images",
+    "FantasyFonts"
+  ],
+  "baseFontSize": 15
+}
