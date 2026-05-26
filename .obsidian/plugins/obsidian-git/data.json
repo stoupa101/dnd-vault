@@ -1,0 +1,15 @@
+{
+  "commitMessage": "vault auto-sync: {{date}}",
+  "commitDateFormat": "YYYY-MM-DD HH:mm:ss",
+  "autoSaveInterval": 0,
+  "autoPushInterval": 0,
+  "autoPullInterval": 0,
+  "autoBackupInterval": 0,
+  "gitPath": "C:\\Program Files\\Git\\cmd\\git.exe",
+  "showStatusBar": true,
+  "pullOnOpen": false,
+  "disablePush": false,
+  "pullBeforePush": true,
+  "pushOnSave": false,
+  "changeFolderIfEmpty": false
+}
