@@ -10,7 +10,8 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "137, 76, 165"
+      "color": "137, 76, 165",
+      "styleWithCss": true
     },
     "flowchart": {
       "type": "flowchart",
@@ -22,7 +23,8 @@
       "injectColor": false,
       "noTitle": true,
       "copy": false,
-      "color": "64, 213, 43"
+      "color": "64, 213, 43",
+      "styleWithCss": true
     },
     "gallery": {
       "type": "gallery",
@@ -34,7 +36,8 @@
       "injectColor": false,
       "noTitle": true,
       "copy": false,
-      "color": "46, 223, 23"
+      "color": "46, 223, 23",
+      "styleWithCss": true
     },
     "readaloud": {
       "type": "readaloud",
@@ -47,7 +50,8 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "203, 234, 242"
+      "color": "203, 234, 242",
+      "styleWithCss": true
     },
     "embed-feat": {
       "type": "embed-feat",
@@ -59,7 +63,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "embed-ability": {
       "type": "embed-ability",
@@ -71,7 +76,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "inline-affliction": {
       "type": "inline-affliction",
@@ -95,7 +101,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "embed-action": {
       "type": "embed-action",
@@ -107,7 +114,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "embed-disease": {
       "type": "embed-disease",
@@ -119,7 +127,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "embed-item": {
       "type": "embed-item",
@@ -131,7 +140,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "embed-ritual": {
       "type": "embed-ritual",
@@ -143,7 +153,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "inline-attack": {
       "type": "inline-attack",
@@ -167,7 +178,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "pf2-summary": {
       "type": "pf2-summary",
@@ -179,7 +191,8 @@
       "command": false,
       "injectColor": false,
       "noTitle": false,
-      "copy": true
+      "copy": true,
+      "styleWithCss": true
     },
     "statblock-pf2e": {
       "type": "statblock-pf2e",
@@ -204,7 +217,8 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "3, 64, 20"
+      "color": "3, 64, 20",
+      "styleWithCss": true
     },
     "letter": {
       "type": "letter",
@@ -217,7 +231,8 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "173, 0, 236"
+      "color": "173, 0, 236",
+      "styleWithCss": true
     },
     "npc": {
       "type": "npc",
@@ -230,7 +245,8 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "133, 194, 98"
+      "color": "133, 194, 98",
+      "styleWithCss": true
     },
     "scene": {
       "type": "scene",
@@ -243,7 +259,8 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "65, 125, 230"
+      "color": "65, 125, 230",
+      "styleWithCss": true
     },
     "skill": {
       "type": "skill",
@@ -256,7 +273,8 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "183, 130, 148"
+      "color": "183, 130, 148",
+      "styleWithCss": true
     },
     "weather": {
       "type": "weather",
@@ -269,12 +287,13 @@
       "injectColor": false,
       "noTitle": false,
       "copy": false,
-      "color": "98, 224, 240"
+      "color": "98, 224, 240",
+      "styleWithCss": true
     }
   },
   "syntaxHighlight": false,
   "copyButton": false,
-  "version": "10.3.2",
+  "version": "11.0.0",
   "autoCollapse": false,
   "defaultCollapseType": "open",
   "injectColor": true,

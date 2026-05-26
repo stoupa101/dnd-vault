@@ -16,7 +16,6 @@
   "aprils-automatic-timelines",
   "table-editor-obsidian",
   "obsidian-kanban",
-  "obsidian-meta-bind-plugin",
   "new-tab-default-page",
   "obsidian-view-mode-by-frontmatter",
   "markdown-attributes",
@@ -28,5 +27,5 @@
   "solo-rpg-toolkit",
   "obsidian-leaflet-plugin",
   "granite",
-  "obsidian-git"
+  "obsidian-meta-bind-plugin"
 ]
