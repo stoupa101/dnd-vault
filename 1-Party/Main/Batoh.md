@@ -144,34 +144,34 @@ inventory:
       - name: "Trn z Mantikory"
         slug: "trn-mantikory"
         qty: 9
-        price: "-"
-        weight: "-"
+        price: "."
+        weight: "."
       - name: "Opis nápisu v chrámu Luna"
         slug: "opis-napisu-luna"
         qty: 1
-        price: "-"
-        weight: "-"
+        price: "."
+        weight: "."
       - name: "Mechanismus skoku"
         slug: "mechanismus-skoku"
         qty: 1
-        price: "-"
-        weight: "-"
+        price: "."
+        weight: "."
         note: "vybitý"
       - name: "Mince klanu Devíti zlatých mečů"
         slug: "mince-deviti-mecu"
         qty: 1
-        price: "-"
-        weight: "-"
+        price: "."
+        weight: "."
       - name: "Medvědí zub"
         slug: "medvedi-zub"
         qty: 1
-        price: "-"
-        weight: "-"
+        price: "."
+        weight: "."
       - name: "List (přepis mapy)"
         slug: "list-prepis-mapy"
         qty: 10
-        price: "-"
-        weight: "-"
+        price: "."
+        weight: "."
   zazemi:
     - name: "Krátký meč"
       slug: "kratky-mec"
@@ -211,7 +211,7 @@ const inv = dv.current().inventory?.opasek || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
   dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
@@ -228,7 +228,7 @@ const inv = dv.current().inventory?.batoh?.naradi || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
   dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
@@ -241,7 +241,7 @@ const inv = dv.current().inventory?.batoh?.preziti || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
   dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
@@ -254,7 +254,7 @@ const inv = dv.current().inventory?.batoh?.ostatni || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
   dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
@@ -267,7 +267,7 @@ const inv = dv.current().inventory?.batoh?.special || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
   dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
@@ -282,7 +282,7 @@ const inv = dv.current().inventory?.zazemi || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
   dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
