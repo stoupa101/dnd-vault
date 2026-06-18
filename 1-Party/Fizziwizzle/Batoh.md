@@ -9,142 +9,174 @@ HerniDatum: 4.6.1358
 HP: 44
 inventory:
   opasek:
-    - name: "Valecne kladivo"
+    - name: "Válečné kladivo"
+      slug: "valecne-kladivo"
       qty: 1
       price: "15 zl"
       weight: "2 lb"
-    - name: "Dyka"
+    - name: "Dýka"
+      slug: "dyka"
       qty: 1
       price: "2 zl"
       weight: "1 lb"
-    - name: "Foukacka"
+    - name: "Foukačka"
+      slug: "foukacka"
       qty: 1
       price: "1 zl"
       weight: "1 lb"
-      note: "15 strel, 5x otravena"
+      note: "15 střel, 5× otrávená"
   batoh:
     naradi:
-      - name: "Kutilske nastroje"
+      - name: "Kutilské nářadí"
+        slug: "kutilske-naradi"
         qty: 1
         price: "50 zl"
         weight: "10 lb"
-        note: "x2 odbornost"
-      - name: "Kovarske nastroje"
+        note: "×2 odbornost"
+      - name: "Kovářské nářadí"
+        slug: "kovarske-naradi"
         qty: 1
         price: "20 zl"
         weight: "8 lb"
-      - name: "Navigacni pomucky"
+      - name: "Navigační pomůcky"
+        slug: "navigacni-pomucky"
         qty: 1
         price: "25 zl"
         weight: "2 lb"
-        note: "x2 odbornost"
+        note: "×2 odbornost"
+      - name: "Kladivo řemeslné"
+        slug: "kladivo-remeslne"
+        qty: 1
+        price: "1 zl"
+        weight: "3 lb"
+      - name: "Krumpáč"
+        slug: "krumpac"
+        qty: 1
+        price: "2 zl"
+        weight: "10 lb"
+      - name: "Lopata"
+        slug: "lopata"
+        qty: 1
+        price: "2 zl"
+        weight: "5 lb"
+      - name: "Kupecké váhy"
+        slug: "kupecke-vahy"
+        qty: 1
+        price: "5 zl"
+        weight: "3 lb"
     preziti:
-      - name: "Lecivy lektvar"
+      - name: "Léčivý lektvar"
+        slug: "lecivy-lektvar"
         qty: 2
         price: "50 zl/ks"
         weight: "0.5 lb/ks"
-      - name: "Zelezne davky"
+      - name: "Železné dávky"
+        slug: "zelezne-davky"
         qty: 10
         price: "5 sm/den"
         weight: "2 lb/den"
-        note: "1 den jidla na osobu"
-      - name: "Pochodne"
+        note: "1 den jídla na osobu"
+      - name: "Pochodně"
+        slug: "pochodne"
         qty: 7
         price: "1 mm/ks"
         weight: "1 lb/ks"
-        note: "Jasne svetlo 20 stop, tlumene 20 stop, hori 1 hodinu"
-      - name: "Kresadlo"
+        note: "Jasné světlo 20 stop, tlumené 20 stop, hoří 1 hodinu"
+      - name: "Křesadlo"
+        slug: "kresadlo"
         qty: 1
         price: "5 sm"
         weight: "1 lb"
-        note: "Ocel, pazourek, hubka, drevo"
-      - name: "Mech na vodu"
+        note: "Ocel, pazourek, hubka, dřevo"
+      - name: "Měch na vodu"
+        slug: "mech-na-vodu"
         qty: 1
         price: "2 sm"
-        weight: "5 lb (plny)"
+        weight: "5 lb (plný)"
         note: "4 galony vody"
       - name: "Karimatka"
+        slug: "karimatka"
         qty: 1
         price: "1 zl"
         weight: "7 lb"
     special:
       - name: "Trn z Mantikory"
+        slug: "trn-mantikory"
         qty: 9
         price: "-"
         weight: "-"
-      - name: "Opis napisu v chramu Luna"
+      - name: "Opis nápisu v chrámu Luna"
+        slug: "opis-napisu-luna"
         qty: 1
         price: "-"
         weight: "-"
       - name: "Mechanismus skoku"
+        slug: "mechanismus-skoku"
         qty: 1
         price: "-"
         weight: "-"
-        note: "vybity"
-      - name: "Mince klanu Deviti zlatych mecu"
+        note: "vybitý"
+      - name: "Mince klanu Devíti zlatých mečů"
+        slug: "mince-deviti-mecu"
         qty: 1
         price: "-"
         weight: "-"
-      - name: "Medvedi zub"
+      - name: "Medvědí zub"
+        slug: "medvedi-zub"
         qty: 1
         price: "-"
         weight: "-"
-      - name: "List (prepis mapy)"
+      - name: "List (přepis mapy)"
+        slug: "list-prepis-mapy"
         qty: 10
         price: "-"
         weight: "-"
     ostatni:
       - name: "Lano"
+        slug: "lano"
         qty: 1
         price: "1 sm"
         weight: "9 lb"
-        note: "Konopne, 50 stop (10 sahu)"
-      - name: "Pacidlo"
+        note: "Konopné, 50 stop (10 sáhů)"
+      - name: "Páčidlo"
+        slug: "pacidlo"
         qty: 1
         price: "2 zl"
         weight: "5 lb"
-      - name: "Zrcatko"
+      - name: "Zrcátko"
+        slug: "zrcatko"
         qty: 1
         price: "5 zl"
         weight: "0.5 lb"
-        note: "Ocelove, 10x13 cm"
-      - name: "Pecetni vosk"
+        note: "Ocelové, 10×13 cm"
+      - name: "Pečetní vosk"
+        slug: "pecetni-vosk"
         qty: 1
         price: "1 zl"
         weight: "0.25 lb"
-      - name: "Kladivo remeslne"
-        qty: 1
-        price: "1 zl"
-        weight: "3 lb"
       - name: "Skoba"
+        slug: "skoba"
         qty: 10
         price: "5 mm/ks"
         weight: "0.25 lb/ks"
-      - name: "Krumpac"
-        qty: 1
-        price: "2 zl"
-        weight: "10 lb"
-      - name: "Lopata"
-        qty: 1
-        price: "2 zl"
-        weight: "5 lb"
-      - name: "Kupeecke vahy"
-        qty: 1
-        price: "5 zl"
-        weight: "3 lb"
-  lodi:
-    - name: "Kratky mec"
+  zazemi:
+    - name: "Krátký meč"
+      slug: "kratky-mec"
       qty: 1
       price: "10 zl"
       weight: "2 lb"
-      note: "1k6 bodne, lehky, vytribeny"
-    - name: "Otravena sipka"
+      note: "1k6 bodné, lehký, vytříbený"
+    - name: "Otrávená šipka"
+      slug: "otravena-sipka"
       qty: 1
       price: "-"
       weight: "-"
-    - name: "Investice"
-      qty: 300
-      note: "zl"
+    - name: "Peníze"
+      slug: "penize-zazemi"
+      qty: 1
+      price: "300 zl"
+      weight: "-"
+      note: "Investice na lodi"
 log: []
 ---
 
@@ -168,10 +200,9 @@ if (inv.length === 0) {
 } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
   });
-  dv.table(["Předmět", "Cena", "Váha"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
@@ -188,10 +219,9 @@ if (inv.length === 0) {
 } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
   });
-  dv.table(["Nářadí", "Cena", "Váha"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
@@ -204,10 +234,9 @@ if (inv.length === 0) {
 } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
   });
-  dv.table(["Předmět", "Cena", "Váha"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
@@ -220,10 +249,9 @@ if (inv.length === 0) {
 } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
   });
-  dv.table(["Předmět", "Cena", "Váha"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
@@ -236,28 +264,26 @@ if (inv.length === 0) {
 } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
   });
-  dv.table(["Předmět", "Cena", "Váha"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
 ---
 
-## Zázemí (Loď)
+## Zázemí
 
 ```dataviewjs
-const inv = dv.current().inventory?.lodi || [];
+const inv = dv.current().inventory?.zazemi || [];
 if (inv.length === 0) {
   dv.paragraph("*Prázdno*");
 } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, item.price || "-", item.weight || "-"];
+    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
   });
-  dv.table(["Předmět", "Cena", "Váha"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
@@ -281,11 +307,11 @@ LIMIT 20
 
 ## Plánované / rozpracované
 
-- [ ] Gadget pro Zalamyra: kratky mec s ledovym zranenim + vystrelovani ledovych sipek
-- [ ] Stribilak (alchymisticke moridlo) - 4 dny vyroby, 25 zl material
-- [ ] Automaticka kopacka (pro Klaka)
-- [ ] Opisovacka textu (pro Klaka)
-- [ ] Elektricke kladivo (pro Klaka)
+- [ ] Gadget pro Zalamyra: krátký meč s ledovým zraněním + vystřelování ledových šipek
+- [ ] Stříblak (alchymistické mořidlo) - 4 dny výroby, 25 zl materiál
+- [ ] Automatická kopáčka (pro Klaka)
+- [ ] Opisovačka textů (pro Klaka)
+- [ ] Elektrické kladivo (pro Klaka)
 
 ---
 
@@ -303,6 +329,6 @@ Pro Zalamyra. Jílec se stříbrnými drátky a modrými krystaly, páčka a zá
 
 ### Stříblak (alchymistické mořidlo)
 
-Hustý perleťový povlak na lodí dřevo. 2x životnost ve slaném prostředí, zabraňuje hnilobě.
+Hustý perleťový povlak na lodí dřevo. 2× životnost ve slaném prostředí, zabraňuje hnilobě.
 - 1 dávka = 10 m², výroba 4 dny, materiál 25 zl
 - Ingredience: olej do lucerny, mušle, krev slizovice, včelí vosk, naplavené dřevo, kyselina
