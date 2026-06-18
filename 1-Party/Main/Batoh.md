@@ -9,11 +9,6 @@ HerniDatum: 4.6.1358
 HP: 44
 inventory:
   opasek:
-    - name: Válečné kladivo
-      slug: valecne-kladivo
-      qty: 1
-      price: 15 zl
-      weight: 2 lb
     - name: Dýka
       slug: dyka
       qty: 1
@@ -25,18 +20,18 @@ inventory:
       price: 1 zl
       weight: 1 lb
       note: Střelná zbraň, dostřel 5/20 stop
-    - name: "Šipka do foukačky"
-      slug: "sipka-foukacka"
+    - name: Šipka do foukačky
+      slug: sipka-foukacka
       qty: 10
-      price: "5 me"
-      weight: "0.25 lb"
-      note: "1 bodné poškození"
-    - name: "Šipka otrávená"
-      slug: "sipka-otravena"
+      price: 5 me
+      weight: 0.25 lb
+      note: 1 bodné poškození
+    - name: Šipka otrávená
+      slug: sipka-otravena
       qty: 5
-      price: "."
-      weight: "0.25 lb"
-      note: "1k4+2 jedové poškození"
+      price: .
+      weight: 0.25 lb
+      note: 1k4+2 jedové poškození
   batoh:
     naradi:
       - name: Kutilské nářadí
@@ -173,25 +168,32 @@ inventory:
         price: .
         weight: .
   zazemi:
-    - name: "Krátký meč"
-      slug: "kratky-mec"
+    - name: Krátký meč
+      slug: kratky-mec
       qty: 1
-      price: "10 zl"
-      weight: "2 lb"
-      note: "1k6 bodné, lehký, vytříbený"
-    - name: "Šipka otrávená"
-      slug: "sipka-otravena"
+      price: 10 zl
+      weight: 2 lb
+      note: 1k6 bodné, lehký, vytříbený
+    - name: Šipka otrávená
+      slug: sipka-otravena
       qty: 1
-      price: "."
-      weight: "0.25 lb"
-      note: "1k4+2 jedové poškození"
-    - name: "Peníze"
-      slug: "penize-zazemi"
+      price: .
+      weight: 0.25 lb
+      note: 1k4+2 jedové poškození
+    - name: Peníze
+      slug: penize-zazemi
       qty: 1
-      price: "300 zl"
-      weight: "."
-      note: "Investice na lodi"
-log: []
+      price: 300 zl
+      weight: .
+      note: Investice na lodi
+    - name: Válečné kladivo
+      slug: valecne-kladivo
+      qty: 2
+      price: 15 zl
+      weight: 2 lb
+log:
+  - "18. 6. 2026 21:45:07 - Presunuto: Valecne kladivo z opasku do zazemi"
+  - "18. 6. 2026 21:46:18 - Presunuto: Valecne kladivo z opasku do zazemi"
 ---
 
 # Inventář
