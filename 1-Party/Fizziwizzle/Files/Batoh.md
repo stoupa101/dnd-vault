@@ -64,34 +64,40 @@ inventory:
         qty: 1
         price: "5 zl"
         weight: "3 lb"
+      - name: "Páčidlo"
+        slug: "pacidlo"
+        qty: 1
+        price: "2 zl"
+        weight: "5 lb"
     preziti:
       - name: "Léčivý lektvar"
         slug: "lecivy-lektvar"
         qty: 2
-        price: "50 zl/ks"
-        weight: "0.5 lb/ks"
+        price: "50 zl"
+        weight: "0.5 lb"
+        note: "2d4+2 HP"
       - name: "Železné dávky"
         slug: "zelezne-davky"
         qty: 10
-        price: "5 sm/den"
+        price: "5 st/den"
         weight: "2 lb/den"
         note: "1 den jídla na osobu"
-      - name: "Pochodně"
-        slug: "pochodne"
+      - name: "Pochodeň"
+        slug: "pochoden"
         qty: 7
-        price: "1 mm/ks"
-        weight: "1 lb/ks"
+        price: "1 me"
+        weight: "1 lb"
         note: "Jasné světlo 20 stop, tlumené 20 stop, hoří 1 hodinu"
       - name: "Křesadlo"
         slug: "kresadlo"
         qty: 1
-        price: "5 sm"
+        price: "5 st"
         weight: "1 lb"
         note: "Ocel, pazourek, hubka, dřevo"
       - name: "Měch na vodu"
         slug: "mech-na-vodu"
         qty: 1
-        price: "2 sm"
+        price: "2 st"
         weight: "5 lb (plný)"
         note: "4 galony vody"
       - name: "Karimatka"
@@ -135,14 +141,9 @@ inventory:
       - name: "Lano"
         slug: "lano"
         qty: 1
-        price: "1 sm"
+        price: "1 st"
         weight: "9 lb"
         note: "Konopné, 50 stop (10 sáhů)"
-      - name: "Páčidlo"
-        slug: "pacidlo"
-        qty: 1
-        price: "2 zl"
-        weight: "5 lb"
       - name: "Zrcátko"
         slug: "zrcatko"
         qty: 1
@@ -157,8 +158,8 @@ inventory:
       - name: "Skoba"
         slug: "skoba"
         qty: 10
-        price: "5 mm/ks"
-        weight: "0.25 lb/ks"
+        price: "5 me"
+        weight: "0.25 lb"
   zazemi:
     - name: "Krátký meč"
       slug: "kratky-mec"
@@ -296,7 +297,7 @@ if (inv.length === 0) {
 
 ```dataview
 TABLE without id entry as "Záznam"
-FROM "1-Party/Fizziwizzle/Batoh.md"
+FROM "1-Party/Fizziwizzle/Files/Batoh.md"
 FLATTEN log as entry
 WHERE file.name = "Batoh"
 SORT entry DESC
