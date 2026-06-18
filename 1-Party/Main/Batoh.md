@@ -24,7 +24,19 @@ inventory:
       qty: 1
       price: "1 zl"
       weight: "1 lb"
-      note: "15 střel, 5× otrávená"
+      note: "Střelná zbraň, dostřel 5/20 stop"
+    - name: "Šipka do foukačky"
+      slug: "sipka-foukacka"
+      qty: 10
+      price: "5 me"
+      weight: "0.25 lb"
+      note: "1 bodné poškození"
+    - name: "Šipka otrávená"
+      slug: "sipka-otravena"
+      qty: 5
+      price: "-"
+      weight: "0.25 lb"
+      note: "1k4+2 jedové poškození"
   batoh:
     naradi:
       - name: "Kutilské nářadí"
@@ -105,6 +117,29 @@ inventory:
         qty: 1
         price: "1 zl"
         weight: "7 lb"
+    ostatni:
+      - name: "Lano"
+        slug: "lano"
+        qty: 5
+        price: "1 st"
+        weight: "9 lb"
+        note: "Konopné, 5 sáhů (25 stop)"
+      - name: "Zrcátko"
+        slug: "zrcatko"
+        qty: 1
+        price: "5 zl"
+        weight: "0.5 lb"
+        note: "Ocelové, 10×13 cm"
+      - name: "Pečetní vosk"
+        slug: "pecetni-vosk"
+        qty: 1
+        price: "1 zl"
+        weight: "0.25 lb"
+      - name: "Skoba"
+        slug: "skoba"
+        qty: 10
+        price: "5 me"
+        weight: "0.25 lb"
     special:
       - name: "Trn z Mantikory"
         slug: "trn-mantikory"
@@ -137,29 +172,6 @@ inventory:
         qty: 10
         price: "-"
         weight: "-"
-    ostatni:
-      - name: "Lano"
-        slug: "lano"
-        qty: 1
-        price: "1 st"
-        weight: "9 lb"
-        note: "Konopné, 50 stop (10 sáhů)"
-      - name: "Zrcátko"
-        slug: "zrcatko"
-        qty: 1
-        price: "5 zl"
-        weight: "0.5 lb"
-        note: "Ocelové, 10×13 cm"
-      - name: "Pečetní vosk"
-        slug: "pecetni-vosk"
-        qty: 1
-        price: "1 zl"
-        weight: "0.25 lb"
-      - name: "Skoba"
-        slug: "skoba"
-        qty: 10
-        price: "5 me"
-        weight: "0.25 lb"
   zazemi:
     - name: "Krátký meč"
       slug: "kratky-mec"
@@ -196,9 +208,7 @@ log: []
 
 ```dataviewjs
 const inv = dv.current().inventory?.opasek || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
+if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
@@ -215,9 +225,7 @@ if (inv.length === 0) {
 
 ```dataviewjs
 const inv = dv.current().inventory?.batoh?.naradi || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
+if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
@@ -230,24 +238,7 @@ if (inv.length === 0) {
 
 ```dataviewjs
 const inv = dv.current().inventory?.batoh?.preziti || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
-  const rows = inv.map((item) => {
-    const note = item.note ? ` (${item.note})` : "";
-    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
-  });
-  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
-}
-```
-
-### Speciál
-
-```dataviewjs
-const inv = dv.current().inventory?.batoh?.special || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
+if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
@@ -260,9 +251,20 @@ if (inv.length === 0) {
 
 ```dataviewjs
 const inv = dv.current().inventory?.batoh?.ostatni || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
+if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
+  const rows = inv.map((item) => {
+    const note = item.note ? ` (${item.note})` : "";
+    return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
+  });
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
+}
+```
+
+### Speciál
+
+```dataviewjs
+const inv = dv.current().inventory?.batoh?.special || [];
+if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
@@ -277,9 +279,7 @@ if (inv.length === 0) {
 
 ```dataviewjs
 const inv = dv.current().inventory?.zazemi || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
+if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || "-", item.weight || "-"];
@@ -297,7 +297,7 @@ if (inv.length === 0) {
 
 ```dataview
 TABLE without id entry as "Záznam"
-FROM "1-Party/Fizziwizzle/Batoh.md"
+FROM "1-Party/Main/Batoh.md"
 FLATTEN log as entry
 WHERE file.name = "Batoh"
 SORT entry DESC
