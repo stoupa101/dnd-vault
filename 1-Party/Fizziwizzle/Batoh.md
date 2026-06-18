@@ -93,123 +93,36 @@ log: []
 > [!success] Stav
 > **`= this.Penize` zl** u sebe · **`= this.Penize_celkem` zl** celkem · **`= this.Suroviny` ks** surovin · **`= this.HP`/44 HP**
 
+> [!tip] Jak přesouvat
+> 1. Najdi předmět v tabulce výše
+> 2. Klikni na odpovídající tlačítko v sekci "Přesuny" níže
+> 3. Předmět se přesune (1 kus) + zapíše se do logu s časem
+> 4. Tabulka se aktualizuje automaticky (Dataview čte YAML)
+
 ---
 
-## Přehled inventáře
-
-### Opasek (rychlý přístup)
+## Rychlý přístup (Opasek)
 
 ```dataviewjs
 const inv = dv.current().inventory?.opasek || [];
 if (inv.length === 0) {
   dv.paragraph("*Prázdno*");
 } else {
-  const rows = inv.map((item, i) => {
-    const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    const btnId = `opasek-${i}`;
-    return [`${item.name}${qty}${note}`, `[🎒](#${btnId}-to-batoh) [✋](#${btnId}-to-hand) [🍖](#${btnId}-consume) [🚢](#${btnId}-to-lodi)`];
-  });
-  dv.table(["Předmět", "Akce"], rows);
-}
-```
-
-### Batoh
-
-```dataviewjs
-const inv = dv.current().inventory?.batoh || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
-  const rows = inv.map((item, i) => {
-    const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    const btnId = `batoh-${i}`;
-    return [`${item.name}${qty}${note}`, `[](#${btnId}-to-opasek) [✋](#${btnId}-to-hand) [](#${btnId}-consume) [](#${btnId}-to-lodi)`];
-  });
-  dv.table(["Předmět", "Akce"], rows);
-}
-```
-
-### Nářadí
-
-```dataviewjs
-const inv = dv.current().inventory?.naradi || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
   const rows = inv.map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, "—"];
+    return [`${item.name}${qty}${note}`];
   });
-  dv.table(["Nářadí", ""], rows);
+  dv.table(["Předmět"], rows);
 }
 ```
 
-### Těžké / stavební
-
-```dataviewjs
-const inv = dv.current().inventory?.tezke || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
-  const rows = inv.map((item) => {
-    const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, "—"];
-  });
-  dv.table(["Předmět", ""], rows);
-}
-```
-
-### Speciální předměty
-
-```dataviewjs
-const inv = dv.current().inventory?.specialni || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
-  const rows = inv.map((item) => {
-    const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    return [`${item.name}${qty}${note}`, "—"];
-  });
-  dv.table(["Předmět", ""], rows);
-}
-```
-
-### Na lodi (zázemí)
-
-```dataviewjs
-const inv = dv.current().inventory?.lodi || [];
-if (inv.length === 0) {
-  dv.paragraph("*Prázdno*");
-} else {
-  const rows = inv.map((item, i) => {
-    const note = item.note ? ` (${item.note})` : "";
-    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
-    const btnId = `lodi-${i}`;
-    return [`${item.name}${qty}${note}`, `[🎒](#${btnId}-to-opasek) [✋](#${btnId}-to-hand)`];
-  });
-  dv.table(["Předmět", "Akce"], rows);
-}
-```
-
----
-
-## Tlačítka přesunů
-
-> [!tip] Ikony akcí
-> 🎒 = přesun do batohu | ✋ = do ruky (opasek) | 🍖 = zkonzumovat/použít | 🚢 = na loď (zázemí)
-> Klikni na ikonu v tabulce výše → automaticky se přesune 1 kus + zapíše do logu
-
-### Z opasku
+### Přesuny z opasku
 
 ```meta-bind-button
-label: "Kladivo → Batoh"
+label: "🎒 Kladivo → Batoh"
 hidden: true
-id: "opasek-0-to-batoh"
+id: "opasek-kladivo-to-batoh"
 style: default
 actions:
   - type: updateMetadata
@@ -227,9 +140,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Kladivo → Ruka"
+label: "✋ Kladivo → Do ruky"
 hidden: true
-id: "opasek-0-to-hand"
+id: "opasek-kladivo-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -239,9 +152,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Kladivo → Loď"
+label: "🚢 Kladivo → Zázemí"
 hidden: true
-id: "opasek-0-to-lodi"
+id: "opasek-kladivo-to-lodi"
 style: default
 actions:
   - type: updateMetadata
@@ -255,13 +168,13 @@ actions:
   - type: updateMetadata
     bindTarget: log
     evaluate: true
-    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Valecne kladivo z opasku na lod']"
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Valecne kladivo z opasku do zazemi']"
 ```
 
 ```meta-bind-button
-label: "Dýka → Batoh"
+label: "🎒 Dýka → Batoh"
 hidden: true
-id: "opasek-1-to-batoh"
+id: "opasek-dyka-to-batoh"
 style: default
 actions:
   - type: updateMetadata
@@ -279,9 +192,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Dýka → Ruka"
+label: "✋ Dýka → Do ruky"
 hidden: true
-id: "opasek-1-to-hand"
+id: "opasek-dyka-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -291,9 +204,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Dýka → Loď"
+label: "🚢 Dýka → Zázemí"
 hidden: true
-id: "opasek-1-to-lodi"
+id: "opasek-dyka-to-lodi"
 style: default
 actions:
   - type: updateMetadata
@@ -307,13 +220,13 @@ actions:
   - type: updateMetadata
     bindTarget: log
     evaluate: true
-    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Dyka z opasku na lod']"
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Dyka z opasku do zazemi']"
 ```
 
 ```meta-bind-button
-label: "Foukačka → Batoh"
+label: "🎒 Foukačka → Batoh"
 hidden: true
-id: "opasek-2-to-batoh"
+id: "opasek-foukacka-to-batoh"
 style: default
 actions:
   - type: updateMetadata
@@ -331,9 +244,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Foukačka → Ruka"
+label: "✋ Foukačka → Do ruky"
 hidden: true
-id: "opasek-2-to-hand"
+id: "opasek-foukacka-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -343,9 +256,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Foukačka → Loď"
+label: "🚢 Foukačka → Zázemí"
 hidden: true
-id: "opasek-2-to-lodi"
+id: "opasek-foukacka-to-lodi"
 style: default
 actions:
   - type: updateMetadata
@@ -359,15 +272,39 @@ actions:
   - type: updateMetadata
     bindTarget: log
     evaluate: true
-    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Foukacka z opasku na lod']"
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Foukacka z opasku do zazemi']"
 ```
 
-### Z batohu
+`BUTTON[opasek-kladivo-to-batoh]` `BUTTON[opasek-kladivo-to-hand]` `BUTTON[opasek-kladivo-to-lodi]`
+
+`BUTTON[opasek-dyka-to-batoh]` `BUTTON[opasek-dyka-to-hand]` `BUTTON[opasek-dyka-to-lodi]`
+
+`BUTTON[opasek-foukacka-to-batoh]` `BUTTON[opasek-foukacka-to-hand]` `BUTTON[opasek-foukacka-to-lodi]`
+
+---
+
+## Batoh
+
+```dataviewjs
+const inv = dv.current().inventory?.batoh || [];
+if (inv.length === 0) {
+  dv.paragraph("*Prázdno*");
+} else {
+  const rows = inv.map((item) => {
+    const note = item.note ? ` (${item.note})` : "";
+    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
+    return [`${item.name}${qty}${note}`];
+  });
+  dv.table(["Předmět"], rows);
+}
+```
+
+### Přesuny z batohu
 
 ```meta-bind-button
-label: "Lektvar → Opasek"
+label: " Lektvar → Opasek"
 hidden: true
-id: "batoh-0-to-opasek"
+id: "batoh-lektvar-to-opasek"
 style: primary
 actions:
   - type: updateMetadata
@@ -385,9 +322,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Lektvar → Ruka"
+label: "✋ Lektvar → Do ruky"
 hidden: true
-id: "batoh-0-to-hand"
+id: "batoh-lektvar-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -401,9 +338,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Lektvar → Konzumace"
+label: "🍖 Lektvar → Zkonzumovat"
 hidden: true
-id: "batoh-0-consume"
+id: "batoh-lektvar-consume"
 style: destructive
 actions:
   - type: updateMetadata
@@ -417,9 +354,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Lektvar → Loď"
+label: "🚢 Lektvar → Zázemí"
 hidden: true
-id: "batoh-0-to-lodi"
+id: "batoh-lektvar-to-lodi"
 style: default
 actions:
   - type: updateMetadata
@@ -433,13 +370,13 @@ actions:
   - type: updateMetadata
     bindTarget: log
     evaluate: true
-    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Lecivy lektvar z batohu na lod']"
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Lecivy lektvar z batohu do zazemi']"
 ```
 
 ```meta-bind-button
-label: "Pochodeň → Opasek"
+label: "🎒 Pochodeň → Opasek"
 hidden: true
-id: "batoh-3-to-opasek"
+id: "batoh-pochoden-to-opasek"
 style: primary
 actions:
   - type: updateMetadata
@@ -457,9 +394,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Pochodeň → Ruka"
+label: " Pochodeň → Do ruky"
 hidden: true
-id: "batoh-3-to-hand"
+id: "batoh-pochoden-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -473,9 +410,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Pochodeň → Předat"
+label: "🍖 Pochodeň → Předat kolegovi"
 hidden: true
-id: "batoh-3-consume"
+id: "batoh-pochoden-give"
 style: destructive
 actions:
   - type: updateMetadata
@@ -489,9 +426,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Pacidlo → Opasek"
+label: "🎒 Pacidlo → Opasek"
 hidden: true
-id: "batoh-6-to-opasek"
+id: "batoh-pacidlo-to-opasek"
 style: primary
 actions:
   - type: updateMetadata
@@ -509,9 +446,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Pacidlo → Ruka"
+label: " Pacidlo → Do ruky"
 hidden: true
-id: "batoh-6-to-hand"
+id: "batoh-pacidlo-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -525,9 +462,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Zrcátko → Opasek"
+label: "🎒 Zrcátko → Opasek"
 hidden: true
-id: "batoh-7-to-opasek"
+id: "batoh-zrcatko-to-opasek"
 style: primary
 actions:
   - type: updateMetadata
@@ -545,9 +482,9 @@ actions:
 ```
 
 ```meta-bind-button
-label: "Zrcátko → Ruka"
+label: "✋ Zrcátko → Do ruky"
 hidden: true
-id: "batoh-7-to-hand"
+id: "batoh-zrcatko-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -560,12 +497,92 @@ actions:
     value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Do ruky: Zrcatko (z batohu)']"
 ```
 
-### Z lodi
+`BUTTON[batoh-lektvar-to-opasek]` `BUTTON[batoh-lektvar-to-hand]` `BUTTON[batoh-lektvar-consume]` `BUTTON[batoh-lektvar-to-lodi]`
+
+`BUTTON[batoh-pochoden-to-opasek]` `BUTTON[batoh-pochoden-to-hand]` `BUTTON[batoh-pochoden-give]`
+
+`BUTTON[batoh-pacidlo-to-opasek]` `BUTTON[batoh-pacidlo-to-hand]`
+
+`BUTTON[batoh-zrcatko-to-opasek]` `BUTTON[batoh-zrcatko-to-hand]`
+
+---
+
+## Batoh: Nářadí
+
+```dataviewjs
+const inv = dv.current().inventory?.naradi || [];
+if (inv.length === 0) {
+  dv.paragraph("*Prázdno*");
+} else {
+  const rows = inv.map((item) => {
+    const note = item.note ? ` (${item.note})` : "";
+    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
+    return [`${item.name}${qty}${note}`];
+  });
+  dv.table(["Nářadí"], rows);
+}
+```
+
+---
+
+## Batoh: Těžké / stavební
+
+```dataviewjs
+const inv = dv.current().inventory?.tezke || [];
+if (inv.length === 0) {
+  dv.paragraph("*Prázdno*");
+} else {
+  const rows = inv.map((item) => {
+    const note = item.note ? ` (${item.note})` : "";
+    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
+    return [`${item.name}${qty}${note}`];
+  });
+  dv.table(["Předmět"], rows);
+}
+```
+
+---
+
+## Batoh: Speciální předměty
+
+```dataviewjs
+const inv = dv.current().inventory?.specialni || [];
+if (inv.length === 0) {
+  dv.paragraph("*Prázdno*");
+} else {
+  const rows = inv.map((item) => {
+    const note = item.note ? ` (${item.note})` : "";
+    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
+    return [`${item.name}${qty}${note}`];
+  });
+  dv.table(["Předmět"], rows);
+}
+```
+
+---
+
+## Zázemí (Loď)
+
+```dataviewjs
+const inv = dv.current().inventory?.lodi || [];
+if (inv.length === 0) {
+  dv.paragraph("*Prázdno*");
+} else {
+  const rows = inv.map((item) => {
+    const note = item.note ? ` (${item.note})` : "";
+    const qty = item.qty > 1 ? ` ×${item.qty}` : "";
+    return [`${item.name}${qty}${note}`];
+  });
+  dv.table(["Předmět"], rows);
+}
+```
+
+### Přesuny ze zázemí
 
 ```meta-bind-button
-label: "Krátký meč → Opasek"
+label: "🎒 Krátký meč → Opasek"
 hidden: true
-id: "lodi-0-to-opasek"
+id: "lodi-mec-to-opasek"
 style: primary
 actions:
   - type: updateMetadata
@@ -579,13 +596,13 @@ actions:
   - type: updateMetadata
     bindTarget: log
     evaluate: true
-    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Kratky mec z lode na opasek']"
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Kratky mec ze zazemi na opasek']"
 ```
 
 ```meta-bind-button
-label: "Krátký meč → Ruka"
+label: "✋ Krátký meč → Do ruky"
 hidden: true
-id: "lodi-0-to-hand"
+id: "lodi-mec-to-hand"
 style: primary
 actions:
   - type: updateMetadata
@@ -595,8 +612,48 @@ actions:
   - type: updateMetadata
     bindTarget: log
     evaluate: true
-    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Do ruky: Kratky mec (z lode)']"
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Do ruky: Kratky mec (ze zazemi)']"
 ```
+
+```meta-bind-button
+label: "🎒 Otrávená šipka → Opasek"
+hidden: true
+id: "lodi-sipka-to-opasek"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.lodi
+    evaluate: true
+    value: "x.map((item, i) => i === 1 ? {...item, qty: item.qty - 1} : item).filter(item => item.qty > 0)"
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "[...x, {name: 'Otravena sipka', qty: 1}]"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Otravena sipka ze zazemi na opasek']"
+```
+
+```meta-bind-button
+label: "✋ Otrávená šipka → Do ruky"
+hidden: true
+id: "lodi-sipka-to-hand"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.lodi
+    evaluate: true
+    value: "x.map((item, i) => i === 1 ? {...item, qty: item.qty - 1} : item).filter(item => item.qty > 0)"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Do ruky: Otravena sipka (ze zazemi)']"
+```
+
+`BUTTON[lodi-mec-to-opasek]` `BUTTON[lodi-mec-to-hand]`
+
+`BUTTON[lodi-sipka-to-opasek]` `BUTTON[lodi-sipka-to-hand]`
 
 ---
 
