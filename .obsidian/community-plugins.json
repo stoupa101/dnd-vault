@@ -28,5 +28,6 @@
   "obsidian-leaflet-plugin",
   "granite",
   "obsidian-meta-bind-plugin",
-  "obsidian-js-engine-plugin"
+  "obsidian-js-engine-plugin",
+  "js-engine"
 ]
