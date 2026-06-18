@@ -460,10 +460,10 @@ actions:
 
 | Co | Kam |
 |---|---|
-| Inventář detailně | [[Files/Batoh]] |
-| Kouzla a gadgety | [[Files/Kouzla]] |
-| Pravidla třídy | [[Files/Pravidla]] |
-| Klak | [[Files/Klak]] |
-| Zázemí, bohové | [[Files/Lore]] |
-| Deník a úkoly | [[Files/Denik]] |
-| Šablona sezení | [[Files/Sablona sezeni]] |
+| Inventář detailně | [[Batoh]] |
+| Kouzla a gadgety | [[Kouzla]] |
+| Pravidla třídy | [[Pravidla]] |
+| Klak | [[Klak]] |
+| Zázemí, bohové | [[Lore]] |
+| Deník a úkoly | [[Denik]] |
+| Šablona sezení | [[Sablona sezeni]] |

@@ -297,7 +297,7 @@ if (inv.length === 0) {
 
 ```dataview
 TABLE without id entry as "Záznam"
-FROM "1-Party/Fizziwizzle/Files/Batoh.md"
+FROM "1-Party/Fizziwizzle/Batoh.md"
 FLATTEN log as entry
 WHERE file.name = "Batoh"
 SORT entry DESC
