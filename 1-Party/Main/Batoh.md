@@ -25,18 +25,18 @@ inventory:
       price: 1 zl
       weight: 1 lb
       note: Střelná zbraň, dostřel 5/20 stop
-    - name: Šipka do foukačky
-      slug: sipka-foukacka
+    - name: "Šipka do foukačky"
+      slug: "sipka-foukacka"
       qty: 10
-      price: 5 me
-      weight: 0.25 lb
-      note: 1 bodné poškození
-    - name: Šipka otrávená
-      slug: sipka-otravena
+      price: "5 me"
+      weight: "0.25 lb"
+      note: "1 bodné poškození"
+    - name: "Šipka otrávená"
+      slug: "sipka-otravena"
       qty: 5
-      price: .
-      weight: 0.25 lb
-      note: 1k4+2 jedové poškození
+      price: "."
+      weight: "0.25 lb"
+      note: "1k4+2 jedové poškození"
   batoh:
     naradi:
       - name: Kutilské nářadí
