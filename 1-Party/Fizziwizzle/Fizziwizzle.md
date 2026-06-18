@@ -19,8 +19,8 @@ ac_bez_stitu: 17
 Stit: true
 Iniciativa: 0
 Rychlost: 5
-pasperc: 17
-paspat: 21
+pasperc: 15
+paspat: 16
 Penize: 182
 Suroviny: 50
 HerniDatum: 4.6.1358
@@ -38,15 +38,15 @@ Status: Active
 
 | Vlastnost | Hodnota | Modifikátor | Poznámka |
 |---|---|---|---|
-| **SÍLA** | 14 | **+2** | Základ 14 |
+| **SÍLA** | 15 | **+2** | Základ 15 |
 | **OBRATNOST** | 10 | **+0** | Základ 10 |
-| **ODOLNOST** | 16 | **+3** | Základ 16 |
-| **INTELIGENCE** | 22 | **+6** | Základ 18 + 4 (lvl 4) |
-| **MOUDROST** | 16 | **+3** | Základ 16 |
-| **CHARISMA** | 12 | **+1** | Základ 12 |
+| **ODOLNOST** | 16 | **+3** | Základ 15 +1 (skalní gnóm) |
+| **INTELIGENCE** | 16 | **+3** | Základ 15 +1 (skalní gnóm) |
+| **MOUDROST** | 14 | **+2** | Základ 14 |
+| **CHARISMA** | 7 | **-2** | Základ 7 |
 
 > [!note] Jak se počítají modifikátory
-> `(Vlastnost - 10) / 2` zaokrouhleno dolů. Např. INT 22 → (22-10)/2 = **+6**
+> `(Vlastnost - 10) / 2` zaokrouhleno dolů. Např. INT 16 → (16-10)/2 = **+3**
 
 ---
 
@@ -140,7 +140,7 @@ actions:
 `BUTTON[hp-minus-5]` `BUTTON[hp-minus-2]` `BUTTON[hp-minus-1]` | `BUTTON[hp-plus-1]` `BUTTON[hp-plus-2]` `BUTTON[hp-plus-5]` `BUTTON[hp-full]`
 
 > [!note] Max HP = 44
-> 5×1k8 (avg 25) + 5×CON mod (+15) + 4 (lvl 1 max) = 44
+> Lvl 1: 8 + CON(+3) = 11 · Lvl 2-5: 4×(5+3) = 32 · Celkem: **43** (mám 44)
 
 ---
 
@@ -297,20 +297,20 @@ actions:
 
 | AC | Iniciativa | Rychlost | Pas. vnímání | Pas. pátrání |
 |---|---|---|---|---|
-| **`VIEW[{ac_stit}][text]`** se štítem / **`VIEW[{ac_bez_stitu}][text]`** bez | +0 | 5 sáhů | 17 | 21 |
+| **`VIEW[{ac_stit}][text]`** se štítem / **`VIEW[{ac_bez_stitu}][text]`** bez | +0 | 5 sáhů | 15 | 16 |
 
 > [!note] Jak se počítá AC
 > - **Se štítem:** Lamelová zbroj 17 + Štít +2 = **19**
 > - **Bez štítu:** Lamelová zbroj 17 = **17**
 > - Iniciativa: DEX mod **+0**
-> - Rychlost: Gnóm 6 sáhů - Zbroj -1 = **5 sáhů**
+> - Rychlost: Skalní gnóm 6 sáhů - Střední zbroj -1 = **5 sáhů**
 
 > [!note] Pasivní vnímání (pasperc)
-> `10 + WIS mod (+3) + Zdatnost (+3) + Odbornost? (ne) = **16**` → oprava: **17** (bonus z rasy/schopnosti)
+> `10 + WIS mod (+2) + Zdatnost (+3) = **15**`
 > *Odezírání ze rtů: výhoda na Pátrání když vidíš rty*
 
 > [!note] Pasivní pátrání (paspat)
-> `10 + INT mod (+6) + Zdatnost (+3) + Odbornost (+3) = **22**` → **21** (přesný výpočet)
+> `10 + INT mod (+3) + Zdatnost (+3) = **16**`
 
 ### Útoky
 
@@ -326,7 +326,7 @@ actions:
 
 | Zbraň | Útok | Dmg | Motor (reakce) | Celkem |
 |---|---|---|---|---|
-| **Kladivo** | +5 | 1k10+2 drtivé | 1k4+3 ⚡ | **1k10+2 + 1k4+3** |
+| **Kladivo** | +5 | 1k10+2 drtivé | 1k4+3  | **1k10+2 + 1k4+3⚡** |
 | **Dýka** | +5 | 1k4+2 bodné | — | **1k4+2** |
 | **Foukačka** | +5 | 1 bodné | — | **1** |
 
@@ -335,6 +335,9 @@ actions:
 
 > [!note] Jak se počítá damage
 > `Základ zbraně + STR mod (+2)`
+
+> [!note] Motor reakce
+> `1k4 + INT mod (+3) = **1k4+3**` (automatická, když tě tvor zasáhne do 5 stop)
 
 > [!warning] Reakce: Motor ve zbroji
 > Tvor tě zasáhne (5 stop) → **1k4+3 ⚡** (automatická, nepotřebuje akci)
@@ -349,11 +352,13 @@ actions:
 | **4** | **2** | | |
 
 > [!note] Jak se počítá SO záchrany
-> `8 + Zdatnost (+3) + INT mod (+6) = **17**` → oprava: **14** (INT 18 → +4, ne +6)
-> *Přepočítat po úpravě INT*
+> `8 + Zdatnost (+3) + INT mod (+3) = **14**`
 
 > [!note] Jak se počítá útok kouzlem
-> `Zdatnost (+3) + INT mod = **+6**`
+> `Zdatnost (+3) + INT mod (+3) = **+6**`
+
+> [!note] Připravená kouzla
+> `INT mod (+3) + lvl/2 (2) = **5** kouzel`
 
 | Kouzlo | Slot | Gadget | Poznámka |
 |---|---|---|---|
@@ -368,35 +373,35 @@ actions:
 
 ## Dovednosti
 
-| TOP dovednosti | Bonus | Výpočet |
+| Dovednost | Bonus | Výpočet |
 |---|---|---|
-| **Historie** | **+8** | INT +6 + Zdatnost +3 + ~~Odbornost~~ = 9? → **8** |
-| **Pátrání** | **+8** | INT +6 + Zdatnost +3 + ~~Odbornost~~ = 9? → **8** |
-
-| Ostatní | Bonus | Výpočet |
-|---|---|---|
-| Mystika | +6 | INT +6 |
-| Náboženství | +6 | INT +6 |
-| Příroda | +6 | INT +6 |
-| Vnímání | +7 | WIS +3 + Zdatnost +3 + ? |
-| Vhled / Lékařství / Přežití | +5 | WIS +3 + ? |
+| **Historie** | **+6** | INT +3 + Zdatnost +3 |
+| **Pátrání** | **+6** | INT +3 + Zdatnost +3 |
+| Mystika | +3 | INT +3 |
+| Náboženství | +3 | INT +3 |
+| Příroda | +3 | INT +3 |
+| Vnímání | +5 | WIS +2 + Zdatnost +3 |
+| Vhled | +2 | WIS +2 |
+| Lékařství | +2 | WIS +2 |
+| Přežití | +2 | WIS +2 |
 | Atletika | +5 | STR +2 + Zdatnost +3 |
 | Akrobacie | +3 | DEX +0 + Zdatnost +3 |
 | Čachry | +3 | DEX +0 + Zdatnost +3 |
 | Nenápadnost | +3 | DEX +0 + Zdatnost +3 |
-| Klamání | +1 | CHA +1 |
-| Přesvědčování | +1 | CHA +1 |
-| Umění / Zastrašování | +1 | CHA +1 |
+| Klamání | -2 | CHA -2 |
+| Přesvědčování | -2 | CHA -2 |
+| Umění | -2 | CHA -2 |
+| Zastrašování | -2 | CHA -2 |
 
 > [!note] Odbornost (Expertise)
-> Na lvl 2: 2 dovednosti s pomůckou → bonus ×2. Mám: **Kutilské +6**, **Navigační +6**
+> Na lvl 2: 2 dovednosti s pomůckou → bonus ×2. Mám: **Kutilské +6** (INT +3 + 2×Zdatnost), **Navigační +6**
 
-**Záchranné hody:** CON +3 | **INT +6** | **WIS +5** | **CHA +5** | STR +2 | DEX +0
+**Záchranné hody:** STR +2 | DEX +0 | **CON +6** | **INT +6** | WIS +2 | CHA -2
 
 > [!note] Záchranné hody
 > `Zdatnost (+3) + Modifikátor vlastnosti`
-> - Tinkerer: CON + INT
-> - WIS/CHA bonus z jiné schopnosti?
+> - Tinkerer: CON + INT (proficientní)
+> - **Gnómská prohnanost:** +3 k INT/WIS/CHA záchranám proti magii
 
 ---
 
