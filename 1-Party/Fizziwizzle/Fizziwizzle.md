@@ -19,7 +19,7 @@ modifier: 3
 pasperc: 17
 Penize: 182
 Suroviny: 50
-HerniDatum: 2.6.1358
+HerniDatum: 4.6.1358
 damage: 5
 Status: Active
 ---
