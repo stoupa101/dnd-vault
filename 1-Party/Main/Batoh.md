@@ -39,139 +39,139 @@ inventory:
       note: "1k4+2 jedové poškození"
   batoh:
     naradi:
-      - name: "Kutilské nářadí"
-        slug: "kutilske-naradi"
+      - name: Kutilské nářadí
+        slug: kutilske-naradi
         qty: 1
-        price: "50 zl"
-        weight: "10 lb"
-        note: "×2 odbornost"
-      - name: "Kovářské nářadí"
-        slug: "kovarske-naradi"
+        price: 50 zl
+        weight: 10 lb
+        note: ×2 odbornost
+      - name: Kovářské nářadí
+        slug: kovarske-naradi
         qty: 1
-        price: "20 zl"
-        weight: "8 lb"
-      - name: "Navigační pomůcky"
-        slug: "navigacni-pomucky"
+        price: 20 zl
+        weight: 8 lb
+      - name: Navigační pomůcky
+        slug: navigacni-pomucky
         qty: 1
-        price: "25 zl"
-        weight: "2 lb"
-        note: "×2 odbornost"
-      - name: "Kladivo řemeslné"
-        slug: "kladivo-remeslne"
+        price: 25 zl
+        weight: 2 lb
+        note: ×2 odbornost
+      - name: Kladivo řemeslné
+        slug: kladivo-remeslne
         qty: 1
-        price: "1 zl"
-        weight: "3 lb"
-      - name: "Krumpáč"
-        slug: "krumpac"
+        price: 1 zl
+        weight: 3 lb
+      - name: Krumpáč
+        slug: krumpac
         qty: 1
-        price: "2 zl"
-        weight: "10 lb"
-      - name: "Lopata"
-        slug: "lopata"
+        price: 2 zl
+        weight: 10 lb
+      - name: Lopata
+        slug: lopata
         qty: 1
-        price: "2 zl"
-        weight: "5 lb"
-      - name: "Kupecké váhy"
-        slug: "kupecke-vahy"
+        price: 2 zl
+        weight: 5 lb
+      - name: Kupecké váhy
+        slug: kupecke-vahy
         qty: 1
-        price: "5 zl"
-        weight: "3 lb"
-      - name: "Páčidlo"
-        slug: "pacidlo"
+        price: 5 zl
+        weight: 3 lb
+      - name: Páčidlo
+        slug: pacidlo
         qty: 1
-        price: "2 zl"
-        weight: "5 lb"
+        price: 2 zl
+        weight: 5 lb
     preziti:
-      - name: "Léčivý lektvar"
-        slug: "lecivy-lektvar"
+      - name: Léčivý lektvar
+        slug: lecivy-lektvar
         qty: 2
-        price: "50 zl"
-        weight: "0.5 lb"
-        note: "2d4+2 HP"
-      - name: "Železné dávky"
-        slug: "zelezne-davky"
+        price: 50 zl
+        weight: 0.5 lb
+        note: 2d4+2 HP
+      - name: Železné dávky
+        slug: zelezne-davky
         qty: 10
-        price: "5 st/den"
-        weight: "2 lb/den"
-        note: "1 den jídla na osobu"
-      - name: "Pochodeň"
-        slug: "pochoden"
+        price: 5 st/den
+        weight: 2 lb/den
+        note: 1 den jídla na osobu
+      - name: Pochodeň
+        slug: pochoden
         qty: 7
-        price: "1 me"
-        weight: "1 lb"
-        note: "Jasné světlo 20 stop, tlumené 20 stop, hoří 1 hodinu"
-      - name: "Křesadlo"
-        slug: "kresadlo"
+        price: 1 me
+        weight: 1 lb
+        note: Jasné světlo 20 stop, tlumené 20 stop, hoří 1 hodinu
+      - name: Křesadlo
+        slug: kresadlo
         qty: 1
-        price: "5 st"
-        weight: "1 lb"
-        note: "Ocel, pazourek, hubka, dřevo"
-      - name: "Měch na vodu"
-        slug: "mech-na-vodu"
+        price: 5 st
+        weight: 1 lb
+        note: Ocel, pazourek, hubka, dřevo
+      - name: Měch na vodu
+        slug: mech-na-vodu
         qty: 1
-        price: "2 st"
-        weight: "5 lb (plný)"
-        note: "4 galony vody"
-      - name: "Karimatka"
-        slug: "karimatka"
+        price: 2 st
+        weight: 5 lb (plný)
+        note: 4 galony vody
+      - name: Karimatka
+        slug: karimatka
         qty: 1
-        price: "1 zl"
-        weight: "7 lb"
+        price: 1 zl
+        weight: 7 lb
     ostatni:
-      - name: "Lano"
-        slug: "lano"
+      - name: Lano
+        slug: lano
         qty: 5
-        price: "1 st"
-        weight: "9 lb"
-        note: "Konopné, 5 sáhů (25 stop)"
-      - name: "Zrcátko"
-        slug: "zrcatko"
+        price: 1 st
+        weight: 9 lb
+        note: Konopné, 5 sáhů (25 stop)
+      - name: Zrcátko
+        slug: zrcatko
         qty: 1
-        price: "5 zl"
-        weight: "0.5 lb"
-        note: "Ocelové, 10×13 cm"
-      - name: "Pečetní vosk"
-        slug: "pecetni-vosk"
+        price: 5 zl
+        weight: 0.5 lb
+        note: Ocelové, 10×13 cm
+      - name: Pečetní vosk
+        slug: pecetni-vosk
         qty: 1
-        price: "1 zl"
-        weight: "0.25 lb"
-      - name: "Skoba"
-        slug: "skoba"
+        price: 1 zl
+        weight: 0.25 lb
+      - name: Skoba
+        slug: skoba
         qty: 10
-        price: "5 me"
-        weight: "0.25 lb"
+        price: 5 me
+        weight: 0.25 lb
     special:
-      - name: "Trn z Mantikory"
-        slug: "trn-mantikory"
+      - name: Trn z Mantikory
+        slug: trn-mantikory
         qty: 9
-        price: "."
-        weight: "."
-      - name: "Opis nápisu v chrámu Luna"
-        slug: "opis-napisu-luna"
+        price: .
+        weight: .
+      - name: Opis nápisu v chrámu Luna
+        slug: opis-napisu-luna
         qty: 1
-        price: "."
-        weight: "."
-      - name: "Mechanismus skoku"
-        slug: "mechanismus-skoku"
+        price: .
+        weight: .
+      - name: Mechanismus skoku
+        slug: mechanismus-skoku
         qty: 1
-        price: "."
-        weight: "."
-        note: "vybitý"
-      - name: "Mince klanu Devíti zlatých mečů"
-        slug: "mince-deviti-mecu"
+        price: .
+        weight: .
+        note: vybitý
+      - name: Mince klanu Devíti zlatých mečů
+        slug: mince-deviti-mecu
         qty: 1
-        price: "."
-        weight: "."
-      - name: "Medvědí zub"
-        slug: "medvedi-zub"
+        price: .
+        weight: .
+      - name: Medvědí zub
+        slug: medvedi-zub
         qty: 1
-        price: "."
-        weight: "."
-      - name: "List (přepis mapy)"
-        slug: "list-prepis-mapy"
+        price: .
+        weight: .
+      - name: List (přepis mapy)
+        slug: list-prepis-mapy
         qty: 10
-        price: "."
-        weight: "."
+        price: .
+        weight: .
   zazemi:
     - name: "Krátký meč"
       slug: "kratky-mec"
@@ -190,7 +190,15 @@ inventory:
       price: "300 zl"
       weight: "."
       note: "Investice na lodi"
-log: []
+log:
+  - "18. 6. 2026 21:13:08 - Presunuto: Valecne kladivo z opasku do zazemi"
+  - "18. 6. 2026 21:13:10 - Presunuto: Valecne kladivo z opasku do zazemi"
+  - "18. 6. 2026 21:13:11 - Presunuto: Dyka z opasku do zazemi"
+  - "18. 6. 2026 21:13:11 - Presunuto: Foukacka z opasku do zazemi"
+  - "18. 6. 2026 21:13:12 - Presunuto: Sipka do foukacky z opasku do zazemi"
+  - "18. 6. 2026 21:13:12 - Presunuto: Sipka otravena z opasku do zazemi"
+  - "18. 6. 2026 21:14:12 - Presunuto: Sipka otravena z opasku do zazemi"
+  - "18. 6. 2026 21:17:43 - Presunuto: Sipka otravena z opasku do zazemi"
 ---
 
 # Inventář
@@ -307,11 +315,11 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.opasek
     evaluate: true
-    value: "x.map(i => i.slug === 'sipka-otravena' ? {...i, qty: i.qty - 1} : i).filter(i => i.qty > 0)"
+    value: "x.map(i => i.slug === 'otravena-sipka' ? {...i, qty: i.qty - 1} : i).filter(i => i.qty > 0)"
   - type: updateMetadata
     bindTarget: inventory.zazemi
     evaluate: true
-    value: "x.some(i => i.slug === 'sipka-otravena') ? x.map(i => i.slug === 'sipka-otravena' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Šipka otrávená',slug:'sipka-otravena',qty:1,price:'.',weight:'0.25 lb',note:'1k4+2 jedové poškození'}]"
+    value: "x.some(i => i.slug === 'otravena-sipka') ? x.map(i => i.slug === 'sipka-otravena' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Šipka otrávená',slug:'sipka-otravena',qty:1,price:'.',weight:'0.25 lb',note:'1k4+2 jedové poškození'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
