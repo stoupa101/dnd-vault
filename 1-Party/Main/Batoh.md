@@ -179,11 +179,12 @@ inventory:
       price: "10 zl"
       weight: "2 lb"
       note: "1k6 bodné, lehký, vytříbený"
-    - name: "Otrávená šipka"
-      slug: "otravena-sipka"
+    - name: "Šipka otrávená"
+      slug: "sipka-otravena"
       qty: 1
       price: "."
-      weight: "."
+      weight: "0.25 lb"
+      note: "1k4+2 jedové poškození"
     - name: "Peníze"
       slug: "penize-zazemi"
       qty: 1
