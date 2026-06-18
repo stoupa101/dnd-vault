@@ -9,34 +9,34 @@ HerniDatum: 4.6.1358
 HP: 44
 inventory:
   opasek:
-    - name: "Válečné kladivo"
-      slug: "valecne-kladivo"
+    - name: Válečné kladivo
+      slug: valecne-kladivo
       qty: 1
-      price: "15 zl"
-      weight: "2 lb"
-    - name: "Dýka"
-      slug: "dyka"
+      price: 15 zl
+      weight: 2 lb
+    - name: Dýka
+      slug: dyka
       qty: 1
-      price: "2 zl"
-      weight: "1 lb"
-    - name: "Foukačka"
-      slug: "foukacka"
+      price: 2 zl
+      weight: 1 lb
+    - name: Foukačka
+      slug: foukacka
       qty: 1
-      price: "1 zl"
-      weight: "1 lb"
-      note: "Střelná zbraň, dostřel 5/20 stop"
-    - name: "Šipka do foukačky"
-      slug: "sipka-foukacka"
+      price: 1 zl
+      weight: 1 lb
+      note: Střelná zbraň, dostřel 5/20 stop
+    - name: Šipka do foukačky
+      slug: sipka-foukacka
       qty: 10
-      price: "5 me"
-      weight: "0.25 lb"
-      note: "1 bodné poškození"
-    - name: "Šipka otrávená"
-      slug: "sipka-otravena"
+      price: 5 me
+      weight: 0.25 lb
+      note: 1 bodné poškození
+    - name: Šipka otrávená
+      slug: sipka-otravena
       qty: 5
-      price: "."
-      weight: "0.25 lb"
-      note: "1k4+2 jedové poškození"
+      price: .
+      weight: 0.25 lb
+      note: 1k4+2 jedové poškození
   batoh:
     naradi:
       - name: Kutilské nářadí
@@ -190,15 +190,7 @@ inventory:
       price: "300 zl"
       weight: "."
       note: "Investice na lodi"
-log:
-  - "18. 6. 2026 21:13:08 - Presunuto: Valecne kladivo z opasku do zazemi"
-  - "18. 6. 2026 21:13:10 - Presunuto: Valecne kladivo z opasku do zazemi"
-  - "18. 6. 2026 21:13:11 - Presunuto: Dyka z opasku do zazemi"
-  - "18. 6. 2026 21:13:11 - Presunuto: Foukacka z opasku do zazemi"
-  - "18. 6. 2026 21:13:12 - Presunuto: Sipka do foukacky z opasku do zazemi"
-  - "18. 6. 2026 21:13:12 - Presunuto: Sipka otravena z opasku do zazemi"
-  - "18. 6. 2026 21:14:12 - Presunuto: Sipka otravena z opasku do zazemi"
-  - "18. 6. 2026 21:17:43 - Presunuto: Sipka otravena z opasku do zazemi"
+log: []
 ---
 
 # Inventář
