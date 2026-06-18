@@ -199,7 +199,7 @@ log: []
 > **`= this.Penize` zl** u sebe · **`= this.Penize_celkem` zl** celkem · **`= this.Suroviny` ks** surovin · **`= this.HP`/44 HP**
 
 > [!tip] Přesuny
-> Klikni na ikonu u předmětu → přesune se 1 kus do cíle. Pokud cíl položku už má, zvýší se množství. Pokud množství klesne na 0, položka zmizí.
+> Klikni na tlačítko → přesune se 1 kus. Pokud cíl položku už má, zvýší se množství. Pokud množství klesne na 0, položka zmizí.
 
 ---
 
@@ -208,19 +208,18 @@ log: []
 ```dataviewjs
 const inv = dv.current().inventory?.opasek || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
-  const rows = inv.map((item) => {
+  const rows = inv.filter(i => i.qty > 0).map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const btn = item.qty > 0 ? `BUTTON[opasek-${item.slug}-to-zazemi]` : "";
-    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || ".", btn];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
-  dv.table(["Název", "Počet", "Cena", "Váha", "→ Zázemí"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
-### Tlačítka přesunů (Opasek → Zázemí)
+### Přesun do Zázemí 🚢
 
 ```meta-bind-button
-label: "🚢"
+label: "🚢 Válečné kladivo"
 hidden: true
 id: "opasek-valecne-kladivo-to-zazemi"
 style: default
@@ -232,7 +231,7 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.zazemi
     evaluate: true
-    value: "x.some(i => i.slug === 'valecne-kladivo') ? x.map(i => i.slug === 'valecne-kladivo' ? {...i, qty: i.qty + 1} : i) : [...x, {...getMetadata('inventory.opasek').find(i => i.slug === 'valecne-kladivo') || {name:'Válečné kladivo',slug:'valecne-kladivo',price:'15 zl',weight:'2 lb'}, qty:1}]"
+    value: "x.some(i => i.slug === 'valecne-kladivo') ? x.map(i => i.slug === 'valecne-kladivo' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Válečné kladivo',slug:'valecne-kladivo',qty:1,price:'15 zl',weight:'2 lb'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
@@ -240,7 +239,7 @@ actions:
 ```
 
 ```meta-bind-button
-label: ""
+label: "🚢 Dýka"
 hidden: true
 id: "opasek-dyka-to-zazemi"
 style: default
@@ -252,7 +251,7 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.zazemi
     evaluate: true
-    value: "x.some(i => i.slug === 'dyka') ? x.map(i => i.slug === 'dyka' ? {...i, qty: i.qty + 1} : i) : [...x, {...getMetadata('inventory.opasek').find(i => i.slug === 'dyka') || {name:'Dýka',slug:'dyka',price:'2 zl',weight:'1 lb'}, qty:1}]"
+    value: "x.some(i => i.slug === 'dyka') ? x.map(i => i.slug === 'dyka' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Dýka',slug:'dyka',qty:1,price:'2 zl',weight:'1 lb'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
@@ -260,7 +259,7 @@ actions:
 ```
 
 ```meta-bind-button
-label: "🚢"
+label: "🚢 Foukačka"
 hidden: true
 id: "opasek-foukacka-to-zazemi"
 style: default
@@ -272,7 +271,7 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.zazemi
     evaluate: true
-    value: "x.some(i => i.slug === 'foukacka') ? x.map(i => i.slug === 'foukacka' ? {...i, qty: i.qty + 1} : i) : [...x, {...getMetadata('inventory.opasek').find(i => i.slug === 'foukacka') || {name:'Foukačka',slug:'foukacka',price:'1 zl',weight:'1 lb',note:'Střelná zbraň, dostřel 5/20 stop'}, qty:1}]"
+    value: "x.some(i => i.slug === 'foukacka') ? x.map(i => i.slug === 'foukacka' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Foukačka',slug:'foukacka',qty:1,price:'1 zl',weight:'1 lb',note:'Střelná zbraň, dostřel 5/20 stop'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
@@ -280,7 +279,7 @@ actions:
 ```
 
 ```meta-bind-button
-label: "🚢"
+label: " Šipka do foukačky"
 hidden: true
 id: "opasek-sipka-foukacka-to-zazemi"
 style: default
@@ -292,7 +291,7 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.zazemi
     evaluate: true
-    value: "x.some(i => i.slug === 'sipka-foukacka') ? x.map(i => i.slug === 'sipka-foukacka' ? {...i, qty: i.qty + 1} : i) : [...x, {...getMetadata('inventory.opasek').find(i => i.slug === 'sipka-foukacka') || {name:'Šipka do foukačky',slug:'sipka-foukacka',price:'5 me',weight:'0.25 lb',note:'1 bodné poškození'}, qty:1}]"
+    value: "x.some(i => i.slug === 'sipka-foukacka') ? x.map(i => i.slug === 'sipka-foukacka' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Šipka do foukačky',slug:'sipka-foukacka',qty:1,price:'5 me',weight:'0.25 lb',note:'1 bodné poškození'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
@@ -300,7 +299,7 @@ actions:
 ```
 
 ```meta-bind-button
-label: "🚢"
+label: "🚢 Šipka otrávená"
 hidden: true
 id: "opasek-sipka-otravena-to-zazemi"
 style: default
@@ -312,12 +311,14 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.zazemi
     evaluate: true
-    value: "x.some(i => i.slug === 'sipka-otravena') ? x.map(i => i.slug === 'sipka-otravena' ? {...i, qty: i.qty + 1} : i) : [...x, {...getMetadata('inventory.opasek').find(i => i.slug === 'sipka-otravena') || {name:'Šipka otrávená',slug:'sipka-otravena',price:'.',weight:'0.25 lb',note:'1k4+2 jedové poškození'}, qty:1}]"
+    value: "x.some(i => i.slug === 'sipka-otravena') ? x.map(i => i.slug === 'sipka-otravena' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Šipka otrávená',slug:'sipka-otravena',qty:1,price:'.',weight:'0.25 lb',note:'1k4+2 jedové poškození'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
     value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Sipka otravena z opasku do zazemi']"
 ```
+
+`BUTTON[opasek-valecne-kladivo-to-zazemi]` `BUTTON[opasek-dyka-to-zazemi]` `BUTTON[opasek-foukacka-to-zazemi]` `BUTTON[opasek-sipka-foukacka-to-zazemi]` `BUTTON[opasek-sipka-otravena-to-zazemi]`
 
 ---
 
@@ -328,7 +329,7 @@ actions:
 ```dataviewjs
 const inv = dv.current().inventory?.batoh?.naradi || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
-  const rows = inv.map((item) => {
+  const rows = inv.filter(i => i.qty > 0).map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
@@ -341,7 +342,7 @@ if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
 ```dataviewjs
 const inv = dv.current().inventory?.batoh?.preziti || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
-  const rows = inv.map((item) => {
+  const rows = inv.filter(i => i.qty > 0).map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
@@ -354,7 +355,7 @@ if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
 ```dataviewjs
 const inv = dv.current().inventory?.batoh?.ostatni || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
-  const rows = inv.map((item) => {
+  const rows = inv.filter(i => i.qty > 0).map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
@@ -367,7 +368,7 @@ if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
 ```dataviewjs
 const inv = dv.current().inventory?.batoh?.special || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
-  const rows = inv.map((item) => {
+  const rows = inv.filter(i => i.qty > 0).map((item) => {
     const note = item.note ? ` (${item.note})` : "";
     return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
@@ -382,19 +383,18 @@ if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
 ```dataviewjs
 const inv = dv.current().inventory?.zazemi || [];
 if (inv.length === 0) { dv.paragraph("*Prázdno*"); } else {
-  const rows = inv.map((item) => {
+  const rows = inv.filter(i => i.qty > 0).map((item) => {
     const note = item.note ? ` (${item.note})` : "";
-    const btn = item.qty > 0 ? `BUTTON[zazemi-${item.slug}-to-opasek]` : "";
-    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || ".", btn];
+    return [`${item.name}${note}`, item.qty, item.price || ".", item.weight || "."];
   });
-  dv.table(["Název", "Počet", "Cena", "Váha", "→ Opasek"], rows);
+  dv.table(["Název", "Počet", "Cena", "Váha"], rows);
 }
 ```
 
-### Tlačítka přesunů (Zázemí → Opasek)
+### Přesun na Opasek 
 
 ```meta-bind-button
-label: ""
+label: " Krátký meč"
 hidden: true
 id: "zazemi-kratky-mec-to-opasek"
 style: primary
@@ -406,7 +406,7 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.opasek
     evaluate: true
-    value: "x.some(i => i.slug === 'kratky-mec') ? x.map(i => i.slug === 'kratky-mec' ? {...i, qty: i.qty + 1} : i) : [...x, {...getMetadata('inventory.zazemi').find(i => i.slug === 'kratky-mec') || {name:'Krátký meč',slug:'kratky-mec',price:'10 zl',weight:'2 lb',note:'1k6 bodné, lehký, vytříbený'}, qty:1}]"
+    value: "x.some(i => i.slug === 'kratky-mec') ? x.map(i => i.slug === 'kratky-mec' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Krátký meč',slug:'kratky-mec',qty:1,price:'10 zl',weight:'2 lb',note:'1k6 bodné, lehký, vytříbený'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
@@ -414,7 +414,7 @@ actions:
 ```
 
 ```meta-bind-button
-label: "🎒"
+label: "🎒 Otrávená šipka"
 hidden: true
 id: "zazemi-otravena-sipka-to-opasek"
 style: primary
@@ -426,12 +426,34 @@ actions:
   - type: updateMetadata
     bindTarget: inventory.opasek
     evaluate: true
-    value: "x.some(i => i.slug === 'otravena-sipka') ? x.map(i => i.slug === 'otravena-sipka' ? {...i, qty: i.qty + 1} : i) : [...x, {...getMetadata('inventory.zazemi').find(i => i.slug === 'otravena-sipka') || {name:'Otrávená šipka',slug:'otravena-sipka',price:'.',weight:'.'}, qty:1}]"
+    value: "x.some(i => i.slug === 'otravena-sipka') ? x.map(i => i.slug === 'otravena-sipka' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Otrávená šipka',slug:'otravena-sipka',qty:1,price:'.',weight:'.'}]"
   - type: updateMetadata
     bindTarget: log
     evaluate: true
     value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Otravena sipka ze zazemi na opasek']"
 ```
+
+```meta-bind-button
+label: " Peníze"
+hidden: true
+id: "zazemi-penize-to-opasek"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.zazemi
+    evaluate: true
+    value: "x.map(i => i.slug === 'penize-zazemi' ? {...i, qty: i.qty - 1} : i).filter(i => i.qty > 0)"
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "x.some(i => i.slug === 'penize-zazemi') ? x.map(i => i.slug === 'penize-zazemi' ? {...i, qty: i.qty + 1} : i) : [...x, {name:'Peníze',slug:'penize-zazemi',qty:1,price:'300 zl',weight:'.',note:'Investice na lodi'}]"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Penize ze zazemi na opasek']"
+```
+
+`BUTTON[zazemi-kratky-mec-to-opasek]` `BUTTON[zazemi-otravena-sipka-to-opasek]` `BUTTON[zazemi-penize-to-opasek]`
 
 ---
 
