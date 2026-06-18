@@ -19,9 +19,10 @@ ac_bez_stitu: 17
 Stit: true
 Iniciativa: 0
 Rychlost: 5
-pasperc: 15
-paspat: 16
+pasperc: 20
+paspat: 21
 Penize: 182
+Penize_celkem: 482
 Suroviny: 50
 HerniDatum: 4.6.1358
 Status: Active
@@ -41,12 +42,12 @@ Status: Active
 | **SÍLA** | 15 | **+2** | Základ 15 |
 | **OBRATNOST** | 10 | **+0** | Základ 10 |
 | **ODOLNOST** | 16 | **+3** | Základ 15 +1 (skalní gnóm) |
-| **INTELIGENCE** | 16 | **+3** | Základ 15 +1 (skalní gnóm) |
+| **INTELIGENCE** | 17 | **+3** | Základ 15 +1 (rasa) +1 (Pozorovatel) |
 | **MOUDROST** | 14 | **+2** | Základ 14 |
 | **CHARISMA** | 7 | **-2** | Základ 7 |
 
 > [!note] Jak se počítají modifikátory
-> `(Vlastnost - 10) / 2` zaokrouhleno dolů. Např. INT 16 → (16-10)/2 = **+3**
+> `(Vlastnost - 10) / 2` zaokrouhleno dolů. Např. INT 17 → (17-10)/2 = **+3**
 
 ---
 
@@ -139,8 +140,15 @@ actions:
 **HP: `VIEW[{hp}][text]` / `VIEW[{max_hp}][text]`**
 `BUTTON[hp-minus-5]` `BUTTON[hp-minus-2]` `BUTTON[hp-minus-1]` | `BUTTON[hp-plus-1]` `BUTTON[hp-plus-2]` `BUTTON[hp-plus-5]` `BUTTON[hp-full]`
 
-> [!note] Max HP = 44
-> Lvl 1: 8 + CON(+3) = 11 · Lvl 2-5: 4×(5+3) = 32 · Celkem: **43** (mám 44)
+> [!note] Rozpis HP podle levelů
+> | Lvl | Hod | +CON | Celkem |
+> |---|---|---|---|
+> | 1 | max 8 | +3 | **11** |
+> | 2 | 6 | +3 | **9** |
+> | 3 | 8 | +3 | **11** |
+> | 4 | 4 | +3 | **7** |
+> | 5 | 3 | +3 | **6** |
+> | **Celkem** | | | **44** |
 
 ---
 
@@ -218,7 +226,13 @@ actions:
     value: "Math.round((x + 10) * 10) / 10"
 ```
 
-**`VIEW[{Penize}][text]` zl** `BUTTON[zl-minus-10]` `BUTTON[zl-minus-5]` `BUTTON[zl-minus-1]` | `BUTTON[zl-plus-1]` `BUTTON[zl-plus-5]` `BUTTON[zl-plus-10]` | Nastavit: `INPUT[number:Penize]`
+**U sebe: `VIEW[{Penize}][text]` zl** | **Celkem (vč. investic): `VIEW[{Penize_celkem}][text]` zl**
+`BUTTON[zl-minus-10]` `BUTTON[zl-minus-5]` `BUTTON[zl-minus-1]` | `BUTTON[zl-plus-1]` `BUTTON[zl-plus-5]` `BUTTON[zl-plus-10]` | Nastavit: `INPUT[number:Penize]`
+
+> [!note] Rozdělení peněz
+> - **U sebe:** 182 zl (batoh)
+> - **Na lodi (investice):** 300 zl
+> - **Celkem:** 482 zl
 
 ---
 
@@ -297,7 +311,7 @@ actions:
 
 | AC | Iniciativa | Rychlost | Pas. vnímání | Pas. pátrání |
 |---|---|---|---|---|
-| **`VIEW[{ac_stit}][text]`** se štítem / **`VIEW[{ac_bez_stitu}][text]`** bez | +0 | 5 sáhů | 15 | 16 |
+| **`VIEW[{ac_stit}][text]`** se štítem / **`VIEW[{ac_bez_stitu}][text]`** bez | +0 | 5 sáhů | 20 | 21 |
 
 > [!note] Jak se počítá AC
 > - **Se štítem:** Lamelová zbroj 17 + Štít +2 = **19**
@@ -306,11 +320,11 @@ actions:
 > - Rychlost: Skalní gnóm 6 sáhů - Střední zbroj -1 = **5 sáhů**
 
 > [!note] Pasivní vnímání (pasperc)
-> `10 + WIS mod (+2) + Zdatnost (+3) = **15**`
-> *Odezírání ze rtů: výhoda na Pátrání když vidíš rty*
+> `10 + WIS mod (+2) + Zdatnost (+3) + Pozorovatel (+5) = **20**`
+> *Odezírání ze rtů: díky Pozorovateli*
 
 > [!note] Pasivní pátrání (paspat)
-> `10 + INT mod (+3) + Zdatnost (+3) = **16**`
+> `10 + INT mod (+3) + Zdatnost (+3) + Pozorovatel (+5) = **21**`
 
 ### Útoky
 
@@ -318,7 +332,7 @@ actions:
 
 | Zbraň | Útok | Dmg | Motor (reakce) | Celkem |
 |---|---|---|---|---|
-| **Kladivo** | +5 | 1k8+2 drtivé | 1k4+3 ⚡ | **1k8+2 + 1k4+3⚡** |
+| **Kladivo** | +5 | 1k8+2 drtivé | 1k4+3  | **1k8+2 + 1k4+3⚡** |
 | **Dýka** | +5 | 1k4+2 bodné | — | **1k4+2** |
 | **Foukačka** | +5 | 1 bodné | — | **1** |
 
@@ -393,8 +407,13 @@ actions:
 | Umění | -2 | CHA -2 |
 | Zastrašování | -2 | CHA -2 |
 
-> [!note] Odbornost (Expertise)
-> Na lvl 2: 2 dovednosti s pomůckou → bonus ×2. Mám: **Kutilské +6** (INT +3 + 2×Zdatnost), **Navigační +6**
+> [!note] Odbornost (Expertise) - třída lvl 2
+> 2 dovednosti s pomůckou → bonus ×2. Mám: **Kutilské +6** (INT +3 + 2×Zdatnost), **Navigační +6**
+
+> [!note] Pozorovatel (feat lvl 4)
+> - +1 INT (z 16 na 17)
+> - Odezírání ze rtů
+> - **+5 k pasivnímu Vnímání a Pátrání**
 
 **Záchranné hody:** STR +2 | DEX +0 | **CON +6** | **INT +6** | WIS +2 | CHA -2
 
@@ -407,10 +426,26 @@ actions:
 
 ## Stavy
 
-> [!bug] Aktuální
-> - [ ] Otrávený
-> - [ ] Únava 1
+> [!bug] Fyzické
+> - [ ] Zraněný (0 HP)
+> - [ ] Sražený (prone)
+> - [ ] Chycený (grappled)
+> - [ ] Spoutaný (restrained)
+
+> [!bug] Mentální / magické
+> - [ ] Otrávený (poisoned)
+> - [ ] Zmatený (confused)
+> - [ ] Omráčený (stunned)
+> - [ ] Paralyzovaný (paralyzed)
+> - [ ] Prokletý (cursed)
+> - [ ] Vystrašený (frightened)
+> - [ ] Okouzlený (charmed)
+
+> [!bug] Jiné
+> - [ ] Únava (exhaustion) lvl: _
+> - [ ] Neviditelný
 > - [ ] Motor skoku: **vybitý**
+> - [ ] Motor brnění: **vybitý**
 
 ---
 
