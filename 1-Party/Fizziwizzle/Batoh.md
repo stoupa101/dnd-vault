@@ -3,136 +3,328 @@ tags:
   - inventar
   - tinkerer
 Penize: 182
+Penize_celkem: 482
 Suroviny: 50
-HP: 40
-HerniDatum: 2.6.1358
+HerniDatum: 4.6.1358
+HP: 44
+inventory:
+  opasek:
+    - "Valecne kladivo"
+    - "Dyka"
+    - "Foukacka (15 strel, 5x otravena)"
+  batoh:
+    - "Lecivy lektvar (2x)"
+    - "Kadidlo (10 dni)"
+    - "Zasoby jidla (10 dni)"
+    - "Pochodne (7x)"
+    - "Kresadlo"
+    - "Lano (5 sahu)"
+    - "Pacidlo"
+    - "Zrcatko"
+    - "Pecetni vosk"
+    - "Mech na vodu"
+  naradi:
+    - "Kutilske (x2 odbornost)"
+    - "Kovarske"
+    - "Navigacni (x2 odbornost)"
+  tezke:
+    - "Kladivo (remeslne)"
+    - "Skoba (10x)"
+    - "Krumpac"
+    - "Lopata"
+    - "Kupeecke vahy"
+    - "Karimatka"
+  specialni:
+    - "9x trn z Mantikory"
+    - "Opis napisu v chramu Luna"
+    - "Mechanismus skoku (vybity)"
+    - "Mince klanu Deviti zlatych mecu"
+    - "Medvedi zub"
+    - "10x list (prepis mapy)"
+  lodi:
+    - "Kratky mec (1k6 bodne)"
+    - "Otravena sipka"
+    - "300 zl (investice)"
+log: []
 ---
 
 # Inventář
 
 > [!success] Stav
-> **`= this.Penize` zl** · **`= this.Suroviny` ks** surovin · **`= this.HP`/44 HP** · **`= this.HerniDatum`**
+> **`= this.Penize` zl** u sebe · **`= this.Penize_celkem` zl** celkem · **`= this.Suroviny` ks** surovin · **`= this.HP`/44 HP**
 
 ---
 
-## Peníze
+## Rychlý přehled
 
-> [!tip] Jak upravit
-> 1. Změň číslo `Penize` v horním **frontmatteru** (YAML nahoře)
-> 2. Přidej řádek do tabulky níž
+### Opasek (rychlý přístup)
 
-| Herní datum | ± zl | Zůstatek | Co se stalo |
-|---|---|---|---|
-| 2.6.1358 | +4,3+6 | 182 | váček v propadle + nález |
-| | +12 | 194 | prohledání chrámu |
-| | -0,3 | 193,7 | oběd v hostinci Na louce |
+```dataview
+TABLE without id item as "Předmět"
+FROM "1-Party/Fizziwizzle/Batoh.md"
+FLATTEN inventory.opasek as item
+WHERE file.name = "Batoh"
+SORT item
+```
 
----
+### Batoh
 
-## HP tracker
+```dataview
+TABLE without id item as "Předmět"
+FROM "1-Party/Fizziwizzle/Batoh.md"
+FLATTEN inventory.batoh as item
+WHERE file.name = "Batoh"
+SORT item
+```
 
-> [!tip] Jak upravit
-> 1. Změň číslo `HP` v horním **frontmatteru**
-> 2. Max HP = 44
+### Nářadí
 
-| Změna | HP | Co |
-|---|---|---|
-| start | 40 | (nyní) |
+```dataview
+TABLE without id item as "Nářadí"
+FROM "1-Party/Fizziwizzle/Batoh.md"
+FLATTEN inventory.naradi as item
+WHERE file.name = "Batoh"
+SORT item
+```
 
----
+### Těžké / stavební
 
-## Co mám na sobě
+```dataview
+TABLE without id item as "Předmět"
+FROM "1-Party/Fizziwizzle/Batoh.md"
+FLATTEN inventory.tezke as item
+WHERE file.name = "Batoh"
+SORT item
+```
 
-### Zbroj
+### Speciální předměty
 
-| Co | AC | Efekt |
-|---|---|---|
-| Lamelová zbroj | 17 | ⚡ Bleskový motor: reakce 1k4+3 na útočníka |
-| Štít | +2 | |
-| **Celkem** | **19** | nevýhoda na nenápadnost |
+```dataview
+TABLE without id item as "Předmět"
+FROM "1-Party/Fizziwizzle/Batoh.md"
+FLATTEN inventory.specialni as item
+WHERE file.name = "Batoh"
+SORT item
+```
 
-### Na opasku (rychlý přístup)
+### Na lodi (zázemí)
 
-| Co | Dmg | Jak | Munice |
-|---|---|---|---|
-| Válečné kladivo | 1k8+2 / 1k10+2 | 1r / 1.5r drtivé + ⚡ motor | — |
-| Dýka | 1k4+2 | zblízka i vrh (4/12) | — |
-| Foukačka | 1 | střelná (5/20) | 15 střel, 5x otrávena |
-
----
-
-## Batoh
-
-### Použitelné věci
-
-| Co | K čemu |
-|---|---|
-| Léčivý lektvar | 2k4+2 HP |
-| Kadidlo | Za 10 dní |
-| Zásoby jídla | Na 10 dní |
-| 7x pochodní | Osvětlení |
-| Křesadlo | Zapálení |
-| 5 sáhů lana | (na boku torny) |
-| Páčidlo | Otevírání, páčení |
-| Zrcátko | Ohlédnutí, signalizace |
-| Pečetní vosk | Pečetění zpráv |
-| Měch na vodu | Voda |
-
-### Nářadí (dovednostní bonusy)
-
-| Nářadí | Bonus | Co s ním |
-|---|---|---|
-| Kutilské | **+6** (x2 odbornost) | Opravy, drobná výroba |
-| Kovářské | +3 | Kov, výroba, oprava zbraní/zbroje |
-| Navigační | **+6** (x2 odbornost) | Orientace, navigace lodi |
-
-### Stavební / těžké
-
-| Co | Poznámka |
-|---|---|
-| Kladivo (řemeslné) | Na skoby, rozebírání |
-| 10x skoba | Lezení, ukotvení |
-| Krumpáč | Hluboké kopání |
-| Lopata | Mělké kopání |
-| Kupecké váhy | Vážení zboží |
-| Karimatka | Spánek |
-
-### Suroviny (detail)
-
-| Co | Kolik | Poznámka |
-|---|---|---|
-| Kutilské: dláto, nit, jehla, lepidlo | — | Drobné opravy |
-| Kovářské: kleště, hadry, brusný kámen | — | Kovářství |
-| Dřevěné uhlí | polovina | Druhá polovina pryč (Zubaté vrchy) |
+```dataview
+TABLE without id item as "Předmět"
+FROM "1-Party/Fizziwizzle/Batoh.md"
+FLATTEN inventory.lodi as item
+WHERE file.name = "Batoh"
+SORT item
+```
 
 ---
 
-## Speciální předměty
+## Přesuny mezi lokacemi
 
-| Co | Popis | Stav |
-|---|---|---|
-| 9x trn z Mantikory | — | OK |
-| Opis nápisu v chrámu Luna | — | OK |
-| Mechanismus skoku | — | ⚠️ vybitý |
-| Mince klanu Devíti zlatých mečů | — | OK |
-| Medvědí zub | — | OK |
-| 10x list (přepis mapy) | — | OK |
+> [!tip] Jak používat
+> Klikni na tlačítko → předmět se přesune + automaticky se zapíše do logu s časem
 
-### Na lodi
+### Opasek → Batoh
 
-- Krátký meč (1k6 bodné, lehký, vytříbený)
-- Otrávená šipka do kusy
-- 300 zl (investice)
+```meta-bind-button
+label: "Kladivo → Batoh"
+hidden: true
+id: "move-kladivo-opasek-batoh"
+style: default
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "x.filter(i => !i.includes('Kladivo'))"
+  - type: updateMetadata
+    bindTarget: inventory.batoh
+    evaluate: true
+    value: "[...x, 'Valecne kladivo']"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Valecne kladivo z opasku do batohu']"
+```
+
+```meta-bind-button
+label: "Dýka → Batoh"
+hidden: true
+id: "move-dyka-opasek-batoh"
+style: default
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "x.filter(i => !i.includes('Dyka'))"
+  - type: updateMetadata
+    bindTarget: inventory.batoh
+    evaluate: true
+    value: "[...x, 'Dyka']"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Dyka z opasku do batohu']"
+```
+
+```meta-bind-button
+label: "Foukačka → Batoh"
+hidden: true
+id: "move-foukacka-opasek-batoh"
+style: default
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "x.filter(i => !i.includes('Foukacka'))"
+  - type: updateMetadata
+    bindTarget: inventory.batoh
+    evaluate: true
+    value: "[...x, 'Foukacka (15 strel, 5x otravena)']"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Foukacka z opasku do batohu']"
+```
+
+`BUTTON[move-kladivo-opasek-batoh]` `BUTTON[move-dyka-opasek-batoh]` `BUTTON[move-foukacka-opasek-batoh]`
+
+### Batoh → Opasek
+
+```meta-bind-button
+label: "Lektvar → Opasek"
+hidden: true
+id: "move-lektvar-batoh-opasek"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.batoh
+    evaluate: true
+    value: "x.filter(i => !i.includes('Lektvar'))"
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "[...x, 'Lecivy lektvar (2x)']"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Lecivy lektvar z batohu na opasek']"
+```
+
+```meta-bind-button
+label: "Pacidlo → Opasek"
+hidden: true
+id: "move-pacidlo-batoh-opasek"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.batoh
+    evaluate: true
+    value: "x.filter(i => !i.includes('Pacidlo'))"
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "[...x, 'Pacidlo']"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Pacidlo z batohu na opasek']"
+```
+
+```meta-bind-button
+label: "Zrcatko → Opasek"
+hidden: true
+id: "move-zrcatko-batoh-opasek"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.batoh
+    evaluate: true
+    value: "x.filter(i => !i.includes('Zrcatko'))"
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "[...x, 'Zrcatko']"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Zrcatko z batohu na opasek']"
+```
+
+`BUTTON[move-lektvar-batoh-opasek]` `BUTTON[move-pacidlo-batoh-opasek]` `BUTTON[move-zrcatko-batoh-opasek]`
+
+### Opasek → Lodi (zázemí)
+
+```meta-bind-button
+label: "Vše → Loď"
+hidden: true
+id: "move-all-opasek-lodi"
+style: warning
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.lodi
+    evaluate: true
+    value: "[...x, ...getMetadata('inventory.opasek')]"
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "[]"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Vse z opasku na lod (zazemi)']"
+```
+
+`BUTTON[move-all-opasek-lodi]`
+
+### Lodi → Opasek
+
+```meta-bind-button
+label: "Kratky mec → Opasek"
+hidden: true
+id: "move-mec-lodi-opasek"
+style: primary
+actions:
+  - type: updateMetadata
+    bindTarget: inventory.lodi
+    evaluate: true
+    value: "x.filter(i => !i.includes('mec'))"
+  - type: updateMetadata
+    bindTarget: inventory.opasek
+    evaluate: true
+    value: "[...x, 'Kratky mec (1k6 bodne)']"
+  - type: updateMetadata
+    bindTarget: log
+    evaluate: true
+    value: "[...x, new Date().toLocaleString('cs-CZ') + ' - Presunuto: Kratky mec z lode na opasek']"
+```
+
+`BUTTON[move-mec-lodi-opasek]`
+
+---
+
+## Historie přesunů
+
+> [!note] Log
+> Automaticky zaznamenává každý přesun s přesným časem. Slouží jako důkaz pro PJ.
+
+```dataview
+TABLE without id entry as "Záznam"
+FROM "1-Party/Fizziwizzle/Batoh.md"
+FLATTEN log as entry
+WHERE file.name = "Batoh"
+SORT entry DESC
+LIMIT 20
+```
 
 ---
 
 ## Plánované / rozpracované
 
-- [ ] Gadget pro Zalamyra: krátký meč s ledovým zraněním + vystřelování ledových šipek
-- [ ] Stříblak (alchymistické mořidlo) - 4 dny výroby, 25 zl materiál
-- [ ] Automatická kopáčka (pro Klaka)
-- [ ] Opisováčka textů (pro Klaka)
-- [ ] Elektrické kladivo (pro Klaka)
+- [ ] Gadget pro Zalamyra: kratky mec s ledovym zranenim + vystrelovani ledovych sipek
+- [ ] Stribilak (alchymisticke moridlo) - 4 dny vyroby, 25 zl material
+- [ ] Automaticka kopacka (pro Klaka)
+- [ ] Opisovacka textu (pro Klaka)
+- [ ] Elektricke kladivo (pro Klaka)
 
 ---
 
